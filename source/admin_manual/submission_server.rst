@@ -9,8 +9,8 @@ a `Mail Submission Agent (MSA) <https://tools.ietf.org/html/rfc6409>`_. It is
 currently implemented as a proxy that acts as a front-end for any :ref:`mta`,
 adding the necessary functionality required for a submission service: it adds
 the required `AUTH <https://tools.ietf.org/html/rfc4954>`_ support, avoiding
-the need to configure the MTA for SASL authentication. More SMTP capabilities
-like `CHUNKING <https://tools.ietf.org/html/rfc3030>`_ and `SIZE
+the need to configure the MTA for :ref:`SASL authentication <sasl>`. More SMTP
+capabilities like `CHUNKING <https://tools.ietf.org/html/rfc3030>`_ and `SIZE
 <https://tools.ietf.org/html/rfc1870>`_ are supported, without requiring the
 backend MTA supporting these extensions. Other capabilities like `8BITMIME
 <https://tools.ietf.org/html/rfc6152>`_ and `DSN
@@ -46,29 +46,19 @@ Features
 The following SMTP capabilities are supported by the Dovecot submission
 service:
 
-`8BITMIME <https://tools.ietf.org/html/rfc6152>`_ - Only if relay MTA provides
-support
-
-`AUTH <https://tools.ietf.org/html/rfc4954>`_
-
-`BURL <https://tools.ietf.org/html/rfc4468>`_
-
-`CHUNKING <https://tools.ietf.org/html/rfc3030>`_
-
-`DSN <https://tools.ietf.org/html/rfc3461>`_ - Only if relay MTA provides
-support
-
-`ENHANCEDSTATUSCODES <https://tools.ietf.org/html/rfc2034>`_
-
-`PIPELINING <https://tools.ietf.org/html/rfc2920>`_
-
-`SIZE <https://tools.ietf.org/html/rfc1870>`_
-
-`STARTTLS <https://tools.ietf.org/html/rfc3207>`_
-
-`VRFY <https://tools.ietf.org/html/rfc5321>`_
-
-`XCLIENT <http://www.postfix.org/XCLIENT_README.html>`_
+ * `8BITMIME <https://tools.ietf.org/html/rfc6152>`_ - Only if relay MTA provides
+   support
+ * `AUTH <https://tools.ietf.org/html/rfc4954>`_
+ * `BURL <https://tools.ietf.org/html/rfc4468>`_
+ * `CHUNKING <https://tools.ietf.org/html/rfc3030>`_
+ * `DSN <https://tools.ietf.org/html/rfc3461>`_ - Only if relay MTA provides
+   support
+ * `ENHANCEDSTATUSCODES <https://tools.ietf.org/html/rfc2034>`_
+ * `PIPELINING <https://tools.ietf.org/html/rfc2920>`_
+ * `SIZE <https://tools.ietf.org/html/rfc1870>`_
+ * `STARTTLS <https://tools.ietf.org/html/rfc3207>`_
+ * `VRFY <https://tools.ietf.org/html/rfc5321>`_
+ * `XCLIENT <http://www.postfix.org/XCLIENT_README.html>`_
 
 Configuration
 =============
@@ -78,8 +68,8 @@ Submission Service
 
 Just add ``submission`` to the ``protocols=`` setting and configure the relay
 MTA server. The submission service is a login service, just like IMAP, POP3 and :ref:`pigeonhole_managesieve_server`, so clients
-are required to authenticate. The same `authentication configuration
-<https://wiki.dovecot.org/Authentication>`_ swill also apply to submission,
+are required to authenticate. The same :ref:`authentication configuration
+<authentication-authentication>` shall also apply to submission,
 unless you're doing protocol-specific things, in which case you may need to
 amend your configuration for the new protocol. BURL support requires a working
 IMAP URLAUTH implementation.
@@ -109,6 +99,16 @@ are supported:
       The host name reported by the SMTP service (and other parts of Dovecot),
       for example to the client in the initial greeting and to the relay server
       in the HELO/EHLO command. Default is the system's real hostname@domain.
+**submission_client_workarounds**
+   Configures the list of active workarounds for Submission client bugs. The 
+   list is space-separated. Supported workaround identifiers are:
+   
+   **whitespace-before-path**
+      Allow one or more spaces or tabs between ``MAIL FROM:`` and path and between
+      ``RCPT TO:`` and path.
+   **mailbox-for-path**
+      Allow using bare Mailbox syntax (i.e., without ``<...>``) instead of full path
+      syntax.
 **submission_max_mail_size**
       The maximum size of messages accepted for relay. This announced in the
       SMTP SIZE capability. If not configured, this is either determined from
@@ -142,13 +142,14 @@ the SMTP relay configured with the following settings:
       Password for authentication to the relay MTA if authentication is
       required there.
 **submission_relay_ssl = no**
-      Indicates whether TLS is used for the connection to the relay server. The
-      following values are defined for this setting:
-**no**
+   Indicates whether TLS is used for the connection to the relay server. The
+   following values are defined for this setting:
+
+   **no**
       No SSL is used.
-**smtps**
+   **smtps**
       An SMTPS connection (immediate SSL) is used.
-**starttls**
+   **starttls**
       The STARTTLS command is used to establish the TLS layer.
 **submission_relay_ssl_verify = yes**
       Configures whether the TLS certificate of the relay server is to be

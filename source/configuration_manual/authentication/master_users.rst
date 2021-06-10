@@ -57,6 +57,8 @@ only to log in as other people. One example could be a special "spam" master
 user that trains the users' spam filters by reading the messages from the
 user's spam mailbox.
 
+.. _authentication-master_users_acls:
+
 ACLs
 ^^^^^
 If :ref:`acl` plugin is enabled, the Master user is
@@ -167,7 +169,7 @@ exists and get other extra fields.
    # master password passdb
    passdb {
       driver = static
-      default_fields = password=master-password
+      args = password=master-password
       result_success = continue
    }
    # primary passdb

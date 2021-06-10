@@ -13,6 +13,13 @@ There are two parts to the configuration:
 
 (2) event definition.
 
+See also:
+
+ * :ref:`list_of_events` for list of all events.
+ * :ref:`event_filter`
+ * :ref:`statistics`
+ * :ref:`event_design` for technical implementation details
+
 Exporter Definition
 ===================
 
@@ -187,7 +194,7 @@ a datalake having a HTTP API, one could use config such as:
    metric imap_commands {
      exporter = datalake
      exporter_include = name hostname timestamps
-     event_name = imap_command_finished
+     filter = event=imap_command_finished
    }
 
 
@@ -204,6 +211,5 @@ For example, to output all named events from the IMAP service:
    
    metric imap_commands {
      exporter = log
-     event_name = *
-     categories = service:imap
+     filter = event=* AND category=service:imap
    }

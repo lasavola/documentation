@@ -14,9 +14,7 @@ Dovecot namespaces can be used for several other purposes too:
 
 * Changing the hierarchy separator
 * Providing backwards compatibility when switching from another IMAP server
-* Provides support for `public
-  <https://wiki.dovecot.org/SharedMailboxes/Public>`_ and `shared
-  <https://wiki.dovecot.org/SharedMailboxes/Shared>`_ mailboxes
+* Provides support for :ref:`public <public_shared_mailboxes>` and :ref:`shared <user_shared_mailboxes>` mailboxes
 * Allows having mails in multiple different locations with possibly different formats
 
 Configuration
@@ -31,6 +29,189 @@ only internally within configuration. It's not required at all, but it allows
 you to update an existing namespace (like how ``15-mailboxes.conf`` does) or
 have userdb override namespace settings for specific users
 ``namespace/sectionname/prefix=foo/``.
+
+All namespace settings with defaults::
+
+  namespace inbox {
+    disabled = no
+    hidden = no
+    ignore_on_failure = no
+    inbox = no
+    list = yes
+    location =
+    order = 0
+    prefix =
+    separator =
+    subscriptions = yes
+    type = private
+  }
+
+
+.. _setting-namespace_name:
+
+``namespace name``
+------------------
+
+- Default: <empty>
+- Values: :ref:`string`
+
+Name of the namespace.
+Giving name is optional, but doing so enables referencing the configuration later on.
+
+
+.. _setting-namespace_disabled:
+
+``namespace/disabled``
+----------------------
+
+ - Default: ``no``
+ - Values: :ref:`boolean`
+
+When ``yes`` namespace is disabled, and cannot be accessed by user in any way.
+
+
+.. _setting-namespace_hidden:
+
+``namespace/hidden``
+--------------------
+
+ - Default: ``no``
+ - Values: :ref:`boolean`
+
+When ``yes`` namespace will be hidden from IMAP ``NAMESPACE`` command.
+
+
+.. _setting-namespace_ignore_on_failure:
+
+``namespace/ignore_on_failure``
+-------------------------------
+
+ - Default: ``no``
+ - Values: :ref:`boolean`
+
+If namespace :ref:`setting-namespace_location` fails to load, this namespace will not be included.
+Otherwise the whole sessio will fail to start.
+
+
+.. _setting-namespace_inbox:
+
+``namespace/inbox``
+-------------------
+
+ - Default: ``no``
+ - Values: :ref:`boolean`
+
+When ``yes`` this namespace will be considered the one holding the ``INBOX`` folder.
+There can be only one namespace like this.
+
+
+.. _setting-namespace_list:
+
+``namespace/list``
+------------------
+
+ - Default: `yes`
+ - Values: :ref:`boolean`
+
+Whether to include this namespace in LIST output, when listing it's parent's folders.
+It is still possible to list the namespace's folders by explicitly asking for them.
+For example with namespace prefix ``lazy-expunge/`` using ``LIST "" *`` won't list it,
+but using ``LIST "" lazy-expunge/*`` lists all folders under it.
+
+See also :ref:`setting-namespace_hidden`.
+
+
+.. _setting-namespace_location:
+
+``namespace/location``
+----------------------
+
+ - Default: :ref:`setting-mail_location`
+ - Values: :ref:`string`
+
+Specifies driver and parameters for physical mailbox storage.
+
+Example::
+
+  namespace {
+    location = sdbox:/archive/%u
+  }
+
+
+.. _setting-namespace_order:
+
+``namespace/order``
+-------------------
+
+ - Default: `0`
+ - Values: :ref:`uint`
+
+Sets display order in IMAP ``NAMESPACE`` command.
+Automatically numbered when untouched.
+
+
+.. _setting-namespace_prefix:
+
+``namespace/prefix``
+--------------------
+
+ - Default: <empty>
+ - Values: :ref:`string`
+
+Specifies prefix for namespace.
+Must end with :ref:`hierarchy separator <setting-namespace_separator>`.
+
+Example::
+
+  namespace {
+    prefix = Shared/
+    separator = /
+  }
+
+
+.. _setting-namespace_separator:
+
+``namespace/separator``
+-----------------------
+
+ - Default: ``.`` for maildir, ``/`` others.
+ - Values: :ref:`string`
+
+Specifies the hierarchy separator for the namespace.
+The separator is a single character, which can't then otherwise be used in folder names.
+The commonly used separators are ``.`` and ``/``, but other separators can be used as well.
+For example ``^`` is less likely to be found in normal folder names.
+Recommended value is to leave it empty and accept the default value.
+
+Example::
+
+  namespace {
+    separator = /
+  }
+
+
+.. _setting-namespace_subscriptions:
+
+``namespace/subscriptions``
+---------------------------
+
+ - Default: ``yes``
+ - Values: :ref:`boolean`
+
+Whether subscriptions are stored in this namespace.
+This is usually set to ``no`` for shared namespaces so that the shared folders' subscriptions are stored in the user's primary subscriptions file.
+When set to ``no``, the subscriptions are stored in the first parent namespace (based on the prefix) that has this setting set to ``yes``.
+
+
+.. _setting-namespace_type:
+
+``namespace/type``
+------------------
+
+ - Default: ``private``
+ - Values: ``private``, ``shared``, ``public``
+
+See :ref:`namespace-types`.
 
 .. _namespace-types:
 
@@ -412,9 +593,11 @@ put it in `quotes`. The mailbox settings are:
     needs to be added to post-login CAPABILITY response as RFC 6154 mandates. You
     can do this with imap_capability = +SPECIAL-USE
 
+.. _namespaces-autoexpunge:
+
 * autoexpunge=<time>: Automatically at user deinitialization expunge all mails in this mailbox whose
   saved-timestamp is older than `<time>` (e.g. autoexpunge=30d). This removes the
-  need for `expire plugin <https://wiki.dovecot.org/Plugins/Expire>`_ if you
+  need for :ref:`plugin-expire` if you
   don't care that the expunging may not always happen in time.
 
   .. versionadded:: v2.2.20

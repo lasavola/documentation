@@ -12,35 +12,43 @@ For v2.1 and v2.2 see :ref:`old_statistics`.
 
 See :ref:`list_of_events` for list of all events that can be used in statistics.
 
-Dovecot supports gathering statistics from "Events Design". Eventually all of the log messages should be events, so it will be possible to configure Dovecot to get statistics for anything that is logged. For debug messages it's possible to get statistics even if the message itself isn't logged.
+Dovecot supports gathering statistics from events (see :ref:`event_design`).
+Currently there are no statistics logged by default, and therefore they must
+be explicitly added using the ``metric`` configuration blocks.
 
-Currently there are no statistics logged by default (but this might change). You'll need to add some metrics:
+The event filter settings are the only required settings in a metric block.
+The filter specifies which events should be used when calculating the
+statistics for a given metric block.  Event filtering is described in detail
+in :ref:`event_filter_metric`.
+
+In addition to the event filter, a list of fields that are included in the
+metrics can be specified using the ``fields`` setting.  All events have a
+default "duration" field that doesn't need to be listed explicitly.
+
+Finally, the ``group_by`` metric setting can be used to dynamically generate
+sub-metrics based on fields' values.
+
+In general, the metric block has the form:
 
 .. code-block:: none
 
    metric name {
-     # Individual events can be identified either by their name or source file:line location.
-     # The source location of course can change between Dovecot versions, so it should be
-     # avoided.
-     event_name = example_event_name
-     #source_location = example.c:123
-
-     # Space-separated list of categories that must match the event (e.g. "mail" or "storage")
-     #categories =
+     ...filter related settings...
 
      # List of fields in event parameters that are included in the metrics.
-     # All events have a default "duration" field that doesn't need to be listed here.
-     #fields =
+     fields = abc def
 
-     # List of key=value pairs that must match the event. The value can contain '?' and '*' wildcards.
-     #filter {
-     #  field_key = wildcard
-     #}
+     # List of fields to group events by into auto-generated sub-metrics.
+     group_by = field another-field
+   }
 
-     # v2.3.10+
-     # List of fields to group events by into automatically generated
-     # metrics.
-     #group_by = field another-field
+For example::
+
+   metric imap_command {
+     filter = event=imap_command_finished
+
+     fields = bytes_in bytes_out
+     group_by = cmd_name tagged_reply_state
    }
 
 .. _statistics_group_by:
@@ -75,7 +83,7 @@ as an alias for discrete aggregation.  In other words, ``field`` and
 Example::
 
    metric imap_command {
-     event_name = imap_command_finished
+     filter = event=imap_command_finished
      group_by = cmd_name tagged_reply_state
    }
 
@@ -83,15 +91,15 @@ This example configuration will generate statistics for each IMAP command.
 The first "sub-metric" level is based on the IMAP command name, and the
 second (and in this example final) level is based on the tagged reply.  For
 example, a ``SELECT`` IMAP command that succeeded (in other words, it had an
-``OK`` reply) will generate the metric ``imap_command_select_ok``.
+``OK`` reply) will generate the metric ``imap_command_SELECT_ok``.
 
 In addition to the final level metric, all intermediate level metrics are
 generated as well.  For example, the same ``SELECT`` IMAP command will
 generate all of the following metrics:
 
  - ``imap_command``
- - ``imap_command_select``
- - ``imap_command_select_ok``
+ - ``imap_command_SELECT``
+ - ``imap_command_SELECT_ok``
 
 Note: While the top level metrics (e.g., ``imap_command`` above) are
 generated at start up, all ``group_by`` metrics are generated dynamically
@@ -138,7 +146,7 @@ upper bounds for the range.
 Example::
 
    metric imap_command {
-     event_name = imap_command_finished
+     filter = event=imap_command_finished
      group_by = cmd_name duration:exponential:1:5:10
    }
 
@@ -147,12 +155,12 @@ This will generate metric names of the format
 command name, and ``{min}`` and ``{max}`` are the range bounds.  Therefore,
 for a ``SELECT`` IMAP command, the possible generated metric names are:
 
-* ``imap_command_select_ninf_10``
-* ``imap_command_select_11_100``
-* ``imap_command_select_101_1000``
-* ``imap_command_select_1001_10000``
-* ``imap_command_select_10001_100000``
-* ``imap_command_select_100001_inf``
+* ``imap_command_SELECT_ninf_10``
+* ``imap_command_SELECT_11_100``
+* ``imap_command_SELECT_101_1000``
+* ``imap_command_SELECT_1001_10000``
+* ``imap_command_SELECT_10001_100000``
+* ``imap_command_SELECT_100001_inf``
 
 Note: Since the metric names cannot contain -, the string ``ninf`` is used
 to denote negative infinity.
@@ -164,7 +172,7 @@ Finally, because all intermediate level metrics are generated as well.  The
 above example, will also generate all of the following metrics:
 
  - ``imap_command``
- - ``imap_command_select``
+ - ``imap_command_SELECT``
 
 `linear`
 --------
@@ -249,35 +257,24 @@ IMAP command statistics
 .. code-block:: none
 
    metric imap_select_no {
-     event_name = imap_command_finished
-     filter {
-       cmd_name = SELECT
-       tagged_reply_state = NO
-     }
+     filter = event=imap_command_finished AND cmd_name=SELECT AND \
+       tagged_reply_state=NO
    }
 
    metric imap_select_no_notfound {
-     event_name = imap_command_finished
-     filter {
-       cmd_name = SELECT
-       tagged_reply = NO*Mailbox doesn't exist:*
-     }
+     filter = event=imap_command_finished AND cmd_name=SELECT AND \
+       tagged_reply="NO*Mailbox doesn't exist:*"
    }
 
    metric storage_http_gets {
-     event_name = http_request_finished
-     categories = storage
-     filter {
-       method = get
-     }
+     filter = event=http_request_finished AND category=storage AND \
+       method=get
    }
 
    # generate per-command metrics on successful commands
    metric imap_command {
-     event_name = imap_command_finished
-     filter {
-       tagged_reply_state = OK
-     }
+     filter = event=imap_command_finished AND \
+       tagged_reply_state=OK
      group_by = cmd_name
    }
 
@@ -289,11 +286,10 @@ Push notifications
 .. code-block:: none
 
    metric push_notifications {
-     event_name = push_notification_finished
+     filter = event=push_notification_finished
    }
 
    # for OX driver
    metric push_notification_http_finished {
-     event_name = http_request_finished
-     categories = push_notification
+     filter = event=http_request_finished AND category=push_notification
    }

@@ -110,6 +110,18 @@ Overrides the obox username in storage. Normally the username is taken from the 
 
 Path to communicate with metacache process. Shouldn't be changed normally.
 
+.. _plugin-obox-setting_metacache_userdb:
+
+``metacache_userdb``
+--------------------
+
+- Default: ``metacache/metacache-users.db``
+- Values: :ref:`string`
+
+Path to a database which metacache process periodically writes to.
+This database is read by metacache at startup to get the latest state.
+The path is relative to :ref:`setting-state_dir`.
+This setting shouldn't be changed normally.
 
 .. _plugin-obox-setting_obox_lost_mailbox_prefix:
 
@@ -207,6 +219,26 @@ Disable caching bundle list. This setting was added to disable it in case there
 were bugs in it. This setting is likely to become removed entirely.
 
 
+.. _plugin-obox-setting_metacache_index_merging:
+
+``metacache_index_merging``
+---------------------------
+
+.. versionadded:: v2.3.6
+
+- Default: ``v2``
+
+  .. versionchanged:: v2.3.16 Changed default from v1 to v2
+
+Specifies the algorithm to use when merging folder indexes:
+
+ * ``v1`` - The old dsync-based algorithm, which can cause very inefficient
+   behavior in some situations.
+ * ``v2`` - The new algorithm designed specifically for this purpose of merging
+   two indexes. This is the recommended setting.
+ * ``none`` - Alias for :ref:`plugin-obox-setting_metacache_disable_merging`
+
+
 .. _plugin-obox-setting_metacache_disable_merging:
 
 ``metacache_disable_merging``
@@ -288,7 +320,7 @@ list`` output):
  * 2 = INBOX and \Junk folder indexes ("special" folders)
  * 3 = Non-special folder indexes (lowest priority)
 
-The ``metacache_size_weights`` contains ``<percentage> <weight adjustment>``
+The ``metacache_priority_weights`` contains ``<percentage> <weight adjustment>``
 pairs for each of these priorities. So, for example, the first ``10% +1d``
 applies to the user root priority and the last ``100% 0`` applies to other
 folders' priority.

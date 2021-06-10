@@ -4,6 +4,8 @@
 Dovecot Core Settings
 ========================
 
+See :ref:`settings` for list of all setting groups.
+
 .. _setting-auth_anonymous_username:
 
 ``auth_anonymous_username``
@@ -33,7 +35,7 @@ The value ``0`` completely disables caching of these hits.
 .. _setting-auth_cache_size:
 
 ``auth_cache_size``
----------------------------
+-------------------
 
 - Default: ``0``
 - Values:  :ref:`size`
@@ -46,7 +48,7 @@ The setting ``auth_cache_size = 0`` disables use of the authentication cache.
 .. _setting-auth_cache_ttl:
 
 ``auth_cache_ttl``
----------------------------
+------------------
 
 - Default: ``1hour``
 - Values:  :ref:`time`
@@ -59,7 +61,7 @@ database look-up returns internal failure.
 .. _setting-auth_cache_verify_password_with_worker:
 
 ``auth_cache_verify_password_with_worker``
--------------------------------------------
+------------------------------------------
 
 .. versionadded:: v2.2.34
 
@@ -78,7 +80,7 @@ This allows distributing the hash calculations to multiple CPU cores, which coul
 .. _setting-auth_debug:
 
 ``auth_debug``
--------------------------------------------
+--------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -90,7 +92,7 @@ Enables all authentication debug logging (also enables
 .. _setting-auth_debug_passwords:
 
 ``auth_debug_passwords``
--------------------------------------------
+------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -105,7 +107,7 @@ Enabling this enables :ref:`setting-auth_debug` as well.
 .. _setting-auth_default_realm:
 
 ``auth_default_realm``
--------------------------------------------
+----------------------
 
 - Default: <empty>
 
@@ -117,7 +119,7 @@ and appending an @domain element to the username in plaintext logins.
 .. _setting-auth_failure_delay:
 
 ``auth_failure_delay``
--------------------------------------------
+----------------------
 
 - Default: ``2secs``
 - Values:  :ref:`time`
@@ -131,7 +133,7 @@ all auth failures. Thus, this is the maximum interval a user may encounter.
 .. _setting-auth_gssapi_hostname:
 
 ``auth_gssapi_hostname``
--------------------------------------------
+------------------------
 
 - Default: <empty>
 
@@ -146,7 +148,7 @@ Use ``"$ALL"`` (with the quotation marks) to allow all keytab entries.
 .. _setting-auth_krb5_keytab:
 
 ``auth_krb5_keytab``
--------------------------------------------
+--------------------
 
 - Default: <empty>
 
@@ -161,7 +163,7 @@ will be used.
 .. _setting-auth_master_user_separator:
 
 ``auth_master_user_separator``
--------------------------------------------
+------------------------------
 
 - Default: <empty>
 
@@ -179,7 +181,7 @@ Example:
 .. _setting-auth_mechanisms:
 
 ``auth_mechanisms``
--------------------------------------
+-------------------
 
 - Default: ``plain``
 
@@ -213,7 +215,7 @@ Example:
 .. _setting-auth_policy_check_after_auth:
 
 ``auth_policy_check_after_auth``
--------------------------------------
+--------------------------------
 
 - Default: ``yes``
 
@@ -227,7 +229,7 @@ See :ref:`setting-auth_policy_server_url`
 .. _setting-auth_policy_check_before_auth:
 
 ``auth_policy_check_before_auth``
--------------------------------------
+---------------------------------
 
 - Default: ``yes``
 
@@ -241,7 +243,7 @@ See :ref:`setting-auth_policy_server_url`
 .. _setting-auth_policy_hash_mech:
 
 ``auth_policy_hash_mech``
--------------------------------------
+-------------------------
 
 - Default: ``sha256``
 - Values: ``md4, md5, sha1, sha256, sha512``
@@ -249,13 +251,14 @@ See :ref:`setting-auth_policy_server_url`
 Hash mechanism to use for password.
 
 See :ref:`setting-auth_policy_server_url`
+
 .. todo:: Is this the full list?
 
 
 .. _setting-auth_policy_hash_nonce:
 
 ``auth_policy_hash_nonce``
--------------------------------------
+--------------------------
 
 - Default: <empty>
 - Values:  :ref:`string`
@@ -276,7 +279,7 @@ See :ref:`setting-auth_policy_server_url`
 .. _setting-auth_policy_log_only:
 
 ``auth_policy_log_only``
--------------------------------------
+------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -291,7 +294,7 @@ See :ref:`setting-auth_policy_server_url`
 .. _setting-auth_policy_hash_truncate:
 
 ``auth_policy_hash_truncate``
--------------------------------------
+-----------------------------
 
 - Default: ``12``
 - Values: :ref:`uint`
@@ -304,7 +307,7 @@ See :ref:`setting-auth_policy_server_url`
 .. _setting-auth_policy_reject_on_fail:
 
 ``auth_policy_reject_on_fail``
--------------------------------------
+------------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -317,7 +320,7 @@ See :ref:`setting-auth_policy_server_url`
 .. _setting-auth_policy_report_after_auth:
 
 ``auth_policy_report_after_auth``
---------------------------------------
+---------------------------------
 
 - Default: ``yes``
 - Values: :ref:`boolean`
@@ -330,7 +333,7 @@ If ``no``, there will be no report for the authentication result.
 .. _setting-auth_policy_request_attributes:
 
 ``auth_policy_request_attributes``
---------------------------------------
+----------------------------------
 
 - Default: ``login=%{requested_username} pwhash=%{hashed_password} remote=%{rip} device_id=%{client_id} protocol=%s``
 
@@ -348,7 +351,7 @@ See :ref:`setting-auth_policy_server_url`
 .. _setting-auth_policy_server_api_header:
 
 ``auth_policy_server_api_header``
---------------------------------------
+---------------------------------
 
 - Default: <empty>
 
@@ -378,7 +381,7 @@ See :ref:`setting-auth_policy_server_url`
 .. _setting-auth_policy_server_timeout_msecs:
 
 ``auth_policy_server_timeout_msecs``
---------------------------------------
+------------------------------------
 
 - Default: ``2000``
 - Values: :ref:`uint`
@@ -388,7 +391,7 @@ Request timeout, in milliseconds.
 .. _setting-auth_policy_server_url:
 
 ``auth_policy_server_url``
----------------------------------
+--------------------------
 
 - Default: <empty>
 
@@ -409,7 +412,7 @@ Example Setting:
 .. _setting-auth_proxy_self:
 
 ``auth_proxy_self``
----------------------------------
+-------------------
 
 - Default: <empty>
 
@@ -427,7 +430,7 @@ than the server itself.
 .. _setting-auth_realms:
 
 ``auth_realms``
----------------------------------
+---------------
 
 - Default: <empty>
 
@@ -444,7 +447,7 @@ Example Setting:
 .. _setting-auth_socket_path:
 
 ``auth_socket_path``
----------------------------------
+--------------------
 
 - Default: ``auth-userdb``
 
@@ -455,7 +458,7 @@ server for finding users. It is usually not necessary nor advisable to change th
 .. _setting-auth_ssl_require_client_cert:
 
 ``auth_ssl_require_client_cert``
----------------------------------
+--------------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -467,7 +470,7 @@ provided.
 .. _setting-auth_ssl_username_from_cert:
 
 ``auth_ssl_username_from_cert``
---------------------------------
+-------------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -488,7 +491,7 @@ See :ref:`setting-ssl_cert_username_field`
 .. _setting-auth_stats:
 
 ``auth_stats``
-------------------
+--------------
 
 .. versionadded:: v2.3
 
@@ -501,7 +504,7 @@ If the setting ``auth_stats=yes`` is chosen, authentication statistics are added
 .. _setting-auth_use_winbind:
 
 ``auth_use_winbind``
------------------------------
+--------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -518,7 +521,7 @@ domain (either AD or NT).
 .. _setting-auth_username_chars:
 
 ``auth_username_chars``
------------------------------
+-----------------------
 
 - Default: ``abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890.-_@``
 
@@ -534,7 +537,7 @@ If you want to allow all characters, leave the value empty.
 .. _setting-auth_username_format:
 
 ``auth_username_format``
------------------------------
+------------------------
 
 - Default: ``%u``
 - Values:  :ref:`string`
@@ -575,7 +578,7 @@ translated to the `@` character.
 .. _setting-auth_verbose:
 
 ``auth_verbose``
-------------------
+----------------
 
 .. versionadded:: v2.2.24
 
@@ -592,7 +595,7 @@ Explicitly setting :ref:`setting-auth_debug` will override this setting.
 .. _setting-auth_verbose_passwords:
 
 ``auth_verbose_passwords``
------------------------------
+--------------------------
 
 - Default: ``no``
 - Values: ``no``, ``yes``, ``plain`` or ``sha1``
@@ -610,7 +613,7 @@ Available transformations:
 .. _setting-auth_winbind_helper_path:
 
 ``auth_winbind_helper_path``
-------------------------------
+----------------------------
 
 This setting tells the system the path for Samba's ntlm_auth helper
 binary.
@@ -625,7 +628,7 @@ Example Setting:
 .. _setting-auth_worker_max_count:
 
 ``auth_worker_max_count``
----------------------------
+-------------------------
 
 - Default: ``30``
 - Values: :ref:`uint`
@@ -638,7 +641,7 @@ The auth workers are used to execute blocking passdb and userdb queries (e.g., M
 .. _setting-base_dir:
 
 ``base_dir``
----------------
+------------
 
 - Default: ``/var/run/dovecot/``
 
@@ -650,7 +653,7 @@ This can be used to override the ``base_dir`` determined at compile time.
 .. _setting-config_cache_size:
 
 ``config_cache_size``
--------------------------
+---------------------
 
 - Default: ``1 M``
 - Values:  :ref:`size`
@@ -663,7 +666,7 @@ The default is almost always large enough, unless your system has numerous large
 .. _setting-debug_log_path:
 
 ``debug_log_path``
----------------------------------
+------------------
 
 This indicates the log file to use for debug messages. The default is to use
 :ref:`setting-info_log_path` for debug messages as well.
@@ -672,7 +675,7 @@ This indicates the log file to use for debug messages. The default is to use
 .. _setting-default_client_limit:
 
 ``default_client_limit``
----------------------------------
+------------------------
 
 - Default: ``1000``
 - Values: :ref:`uint`
@@ -691,7 +694,7 @@ blocks.
 .. _setting-default_idle_kill:
 
 ``default_idle_kill``
----------------------------------
+---------------------
 
 - Default: ``1mins``
 - Values:  :ref:`time`
@@ -708,7 +711,7 @@ blocks.
 .. _setting-default_internal_group:
 
 ``default_internal_group``
----------------------------------
+--------------------------
 
 - Default: ``dovecot``
 
@@ -720,7 +723,7 @@ See :ref:`setting-default_internal_user`
 .. _setting-default_internal_user:
 
 ``default_internal_user``
----------------------------------
+-------------------------
 
 - Default: ``dovecot``
 
@@ -736,7 +739,7 @@ See :ref:`setting-default_internal_group`
 .. _setting-default_login_user:
 
 ``default_login_user``
----------------------------------
+----------------------
 
 - Default: ``dovenull``
 
@@ -749,7 +752,7 @@ have access to anything at all.
 .. _setting-default_process_limit:
 
 ``default_process_limit``
----------------------------------
+-------------------------
 
 - Default: ``100``
 - Values: :ref:`uint`
@@ -765,7 +768,7 @@ blocks.
 .. _setting-default_vsz_limit:
 
 ``default_vsz_limit``
----------------------------------
+---------------------
 
 - Default: ``256M``
 - Values:  :ref:`size`
@@ -780,7 +783,7 @@ resources.
 .. _setting-deliver_log_format:
 
 ``deliver_log_format``
----------------------------------
+----------------------
 
 - Default: ``msgid=%m: %$``
 - Values:  :ref:`string`
@@ -809,10 +812,30 @@ Example Setting:
    deliver_log_format = stime=%{session_time} msgid=%m: %$
 
 
+.. _setting-dict_db_config:
+
+``dict_db_config``
+------------------
+
+ - Default: <empty>
+ - Values: :ref:`string`
+
+Points to a Berkeley DB config file. Equivalent to adding
+DB_CONFIG=/path to import_environment.
+
+See https://docs.oracle.com/database/bdb181/html/bdb-sql/sql_db_config.html for more information.
+
+Example setting:
+
+.. code-block:: none
+
+  dict_db_config=/etc/dovecot/berkeley.conf
+
+
 .. _setting-director_flush_socket:
 
 ``director_flush_socket``
----------------------------------
+-------------------------
 
 - Default: <empty>
 
@@ -834,7 +857,7 @@ Variables that can be used for this setting:
 .. _setting-director_mail_servers:
 
 ``director_mail_servers``
----------------------------------
+-------------------------
 
 - Default: <empty>
 
@@ -850,7 +873,7 @@ dynamically added to a running ring via the doveadm commands.
 .. _setting-director_max_parallel_kicks:
 
 ``director_max_parallel_kicks``
----------------------------------
+-------------------------------
 
 - Default: ``100``
 - Values: :ref:`uint`
@@ -863,7 +886,7 @@ The maximum number of concurrent kicks allowed in the Director ring.
 .. _setting-director_max_parallel_moves:
 
 ``director_max_parallel_moves``
----------------------------------
+-------------------------------
 
 - Default: ``100``
 - Values: :ref:`uint`
@@ -879,7 +902,7 @@ parameter.
 .. _setting-director_output_buffer_size:
 
 ``director_output_buffer_size``
----------------------------------
+-------------------------------
 
 - Default: ``10M``
 - Values:  :ref:`size`
@@ -895,7 +918,7 @@ disconnected (and reconnected).
 .. _setting-director_ping_idle_timeout:
 
 ``director_ping_idle_timeout``
----------------------------------
+------------------------------
 
 - Default: ``30secs``
 - Values:  :ref:`time`
@@ -910,7 +933,7 @@ otherwise no input coming from the connection.
 .. _setting-director_ping_max_timeout:
 
 ``director_ping_max_timeout``
----------------------------------
+-----------------------------
 
 - Default: ``1mins``
 - Values:  :ref:`time`
@@ -925,7 +948,7 @@ This setting is used when the other director keeps sending input, but among it i
 .. _setting-director_servers:
 
 ``director_servers``
----------------------------------
+--------------------
 
 - Default: <empty>
 
@@ -945,7 +968,7 @@ added to a running ring via the doveadm commands.
 .. _setting-director_user_expire:
 
 ``director_user_expire``
----------------------------------
+------------------------
 
 - Default: ``15mins``
 - Values:  :ref:`time`
@@ -959,7 +982,7 @@ more active connections.
 .. _setting-director_user_kick_delay:
 
 ``director_user_kick_delay``
----------------------------------
+----------------------------
 
 - Default: ``2secs``
 - Values:  :ref:`time`
@@ -974,7 +997,7 @@ for the old backend to complete all of the user's existing processes.
 .. _setting-director_username_hash:
 
 ``director_username_hash``
----------------------------------
+--------------------------
 
 - Default: ``%Lu``
 - Values:  :ref:`string`
@@ -996,7 +1019,7 @@ Variables that can be used for this setting:
 .. _setting-disable_plaintext_auth:
 
 ``disable_plaintext_auth``
----------------------------------
+--------------------------
 
 - Default: ``yes``
 - Values: :ref:`boolean`
@@ -1008,7 +1031,7 @@ unless SSL/TLS is used (LOGINDISABLED capability).
 .. _setting-dotlock_use_excl:
 
 ``dotlock_use_excl``
----------------------------------
+--------------------
 
 - Default: ``yes``
 - Values: :ref:`boolean`
@@ -1021,7 +1044,7 @@ safe to use by default.
 .. _setting-doveadm_allowed_commands:
 
 ``doveadm_allowed_commands``
----------------------------------
+----------------------------
 
 - Default: ``ALL``
 
@@ -1032,7 +1055,7 @@ doveadm server. The setting ``ALL`` allows all commands.
 .. _setting-doveadm_api_key:
 
 ``doveadm_api_key``
----------------------------------
+-------------------
 
 - Default: <empty>
 
@@ -1044,7 +1067,7 @@ If set, the key must be included in the HTTP request (via X-API-Key header) base
 .. _setting-doveadm_http_rawlog_dir:
 
 ``doveadm_http_rawlog_dir``
----------------------------------
+---------------------------
 
 - Default: <empty>
 
@@ -1054,7 +1077,7 @@ Directory where doveadm stores HTTP rawlogs.
 .. _setting-doveadm_password:
 
 ``doveadm_password``
----------------------------------
+--------------------
 
 - Default: <empty>
 
@@ -1068,7 +1091,7 @@ Because it grants access to users' mailboxes, it must be kept secret.
 .. _setting-doveadm_port:
 
 ``doveadm_port``
----------------------------------
+----------------
 
 - Default: ``0``
 - Values:  :ref:`ip_addresses`
@@ -1084,7 +1107,7 @@ A value of 0 means that proxying is not in use.
 .. _setting-doveadm_socket_path:
 
 ``doveadm_socket_path``
----------------------------------
+-----------------------
 
 - Default: ``doveadm-server``
 
@@ -1104,7 +1127,7 @@ doveadm server.
 .. _setting-doveadm_username:
 
 ``doveadm_username``
----------------------------------
+--------------------
 
 - Default: ``doveadm``
 
@@ -1114,7 +1137,7 @@ The username for authentication to the doveadm service.
 .. _setting-doveadm_worker_count:
 
 ``doveadm_worker_count``
----------------------------------
+------------------------
 
 - Default: ``0``
 - Values: :ref:`uint`
@@ -1128,7 +1151,7 @@ If ``0``, commands are run directly in the same process.
 .. _setting-dsync_alt_char:
 
 ``dsync_alt_char``
----------------------------------
+------------------
 
 - Default: ``_``
 
@@ -1143,7 +1166,7 @@ character indicated here.
 .. _setting-dsync_commit_msgs_interval:
 
 ``dsync_commit_msgs_interval``
----------------------------------
+------------------------------
 
 .. versionadded:: v2.2.30
 
@@ -1159,7 +1182,7 @@ transactions that fail.
 .. _setting-dsync_features:
 
 ``dsync_features``
----------------------------------
+------------------
 
 .. versionadded:: v2.2.26
 
@@ -1182,7 +1205,7 @@ Available options:
 .. _setting-dsync_hashed_headers:
 
 ``dsync_hashed_headers``
----------------------------------
+------------------------
 
 .. versionadded:: v2.2.33
 
@@ -1200,7 +1223,7 @@ the remote server.
 .. _setting-dsync_remote_cmd:
 
 ``dsync_remote_cmd``
----------------------------------
+--------------------
 
 - Default: ``ssh -l%{login} %{host} doveadm dsync-server -u%u -U``
 
@@ -1219,7 +1242,7 @@ Variables that can be used for this setting:
 .. _setting-first_valid_gid:
 
 ``first_valid_gid``
----------------------------------
+-------------------
 
 - Default: ``1``
 - Values: :ref:`uint`
@@ -1237,7 +1260,7 @@ See also :ref:`setting-last_valid_gid`.
 .. _setting-first_valid_uid:
 
 ``first_valid_uid``
----------------------------------
+-------------------
 
 - Default: ``500``
 - Values: :ref:`uint`
@@ -1252,7 +1275,7 @@ See also :ref:`setting-last_valid_uid`.
 .. _setting-haproxy_timeout:
 
 ``haproxy_timeout``
----------------------------------
+-------------------
 
 - Default: ``3secs``
 - Values:  :ref:`time`
@@ -1265,7 +1288,7 @@ When to abort the HAProxy connection when no complete header has been received. 
 .. _setting-haproxy_trusted_networks:
 
 ``haproxy_trusted_networks``
----------------------------------
+----------------------------
 
 - Default: <empty>
 
@@ -1280,7 +1303,7 @@ for HAProxy are aborted immediately.
 .. _setting-hostname:
 
 ``hostname``
----------------------------------
+------------
 
 - Default: <empty>
 
@@ -1293,7 +1316,7 @@ The default is the system's real hostname@domain.tld.
 .. _setting-imap_capability:
 
 ``imap_capability``
--------------------------------------------
+-------------------
 
 - Default: <empty>
 
@@ -1312,7 +1335,7 @@ are added at the end of the default string.
 .. _setting-imap_client_workarounds:
 
 ``imap_client_workarounds``
--------------------------------------------
+---------------------------
 
 - Default: <empty>
 
@@ -1350,7 +1373,7 @@ The following values are currently supported:
 .. _setting-imap_fetch_failure:
 
 ``imap_fetch_failure``
--------------------------------------------
+----------------------
 
 - Default: ``disconnect-immediately``
 
@@ -1382,7 +1405,7 @@ Behavior when FETCH fails due to some internal error:
 .. _setting-imap_hibernate_timeout:
 
 ``imap_hibernate_timeout``
--------------------------------------------
+--------------------------
 
 - Default: ``0``
 - Values:  :ref:`size`
@@ -1405,7 +1428,7 @@ Example Setting:
 .. _setting-imap_id_log:
 
 ``imap_id_log``
--------------------------------------------
+---------------
 
 - Default: <empty>
 
@@ -1425,7 +1448,7 @@ Example Setting:
 .. _setting-imap_id_retain:
 
 ``imap_id_retain``
--------------------------------------------
+------------------
 
 .. versionadded:: v2.2.29
 
@@ -1445,7 +1468,7 @@ Example Setting:
 .. _setting-imap_id_send:
 
 ``imap_id_send``
--------------------------------------------
+----------------
 
 - Default: ``name *``
 
@@ -1478,7 +1501,7 @@ Example Setting:
 .. _setting-imap_idle_notify_interval:
 
 ``imap_idle_notify_interval``
--------------------------------------------
+-----------------------------
 
 - Default: ``2mins``
 - Values:  :ref:`time`
@@ -1496,7 +1519,7 @@ Example Setting:
 .. _setting-imap_literal_minus:
 
 ``imap_literal_minus``
--------------------------------------------
+----------------------
 
 - Default: ``no``
 - Values:  :ref:`boolean`
@@ -1510,7 +1533,7 @@ Enable IMAP LITERAL- extension (replaces LITERAL+)?
 .. _setting-imap_logout_format:
 
 ``imap_logout_format``
--------------------------------------------
+----------------------
 
 - Default: ``in=%i out=%o deleted=%{deleted} expunged=%{expunged} trashed=%{trashed} hdr_count=%{fetch_hdr_count} hdr_bytes=%{fetch_hdr_bytes} body_count=%{fetch_body_count} body_bytes=%{fetch_body_bytes}``
 - Values:  :ref:`string`
@@ -1547,7 +1570,7 @@ common variables:
 .. _setting-imap_max_line_length:
 
 ``imap_max_line_length``
--------------------------------------------
+------------------------
 
 - Default: ``64k``
 - Values:  :ref:`size`
@@ -1568,7 +1591,7 @@ Example Setting:
 .. _setting-imap_metadata:
 
 ``imap_metadata``
--------------------------------------------
+-----------------
 
 - Default: ``no``
 - Values:  :ref:`boolean`
@@ -1600,7 +1623,7 @@ Example Setting:
 .. _setting-imap_urlauth_host:
 
 ``imap_urlauth_host``
--------------------------------------------
+---------------------
 
 - Default: <empty>
 
@@ -1614,7 +1637,7 @@ Specifies the hosts allowed in URLAUTH URLs sent by clients.
 .. _setting-imap_urlauth_logout_format:
 
 ``imap_urlauth_logout_format``
--------------------------------------------
+------------------------------
 
 - Default: ``in=%i out=%o``
 - Values:  :ref:`string`
@@ -1639,7 +1662,7 @@ Example Setting:
 .. _setting-imap_urlauth_port:
 
 ``imap_urlauth_port``
--------------------------------------------
+---------------------
 
 - Default: ``143``
 
@@ -1654,292 +1677,105 @@ Example Setting:
 .. todo:: Indicate imap setting
 
 
-.. _setting-imapc_cmd_timeout:
-
 ``imapc_cmd_timeout``
--------------------------------------------
+---------------------
 
-- Default: ``5mins``
-- Values:  :ref:`time`
+See :ref:`setting-imapc_cmd_timeout`
 
-How long to wait for a reply to an IMAP command sent to a remote IMAP server
-before disconnecting and retrying.
-
-This parameter is used in dsync-based migration of mail from the remote system.
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_connection_retry_count:
 
 ``imapc_connection_retry_count``
--------------------------------------------
+--------------------------------
 
-- Default: ``1``
-- Values: :ref:`uint`
+See :ref:`setting-imapc_connection_retry_count`
 
-How many times to retry connection against a remote IMAP server?
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_connection_retry_interval:
 
 ``imapc_connection_retry_interval``
--------------------------------------------
+-----------------------------------
 
-- Default: ``1secs``
-- Values:  :ref:`time`
+See :ref:`setting-imapc_connection_retry_interval`
 
-How long to wait between retries against a remote IMAP server?
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_features:
 
 ``imapc_features``
--------------------------------------------
+------------------
 
-- Default: <empty>
+See :ref:`setting-imapc_features`
 
-This setting provides a space-separated list of features and workarounds that
-can be enabled for dsync-based migration of mail from a remote IMAP server.
-
-Supported imapc_features:
-
-* ``rfc822.size`` - Allow passing through message sizes using FETCH RFC822.SIZE
-* ``fetch-headers`` - Allow fetching specific message headers using FETCH
-  BODY.PEEK[HEADER.FIELDS (..)], may give a significant performance improvement
-
-.. todo:: Import imapc_features list from wiki
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_host:
 
 ``imapc_host``
--------------------------------------------
+--------------
 
-- Default: <empty>
-
-The remote IMAP server to use for dsync-based migration of mail (which allows
-preservation of the IMAP UIDs etc.).
-
-Example:
-
-.. code-block:: none
-
-   imapc_host = imap.example.com
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_list_prefix:
+See :ref:`setting-imapc_host`
 
 ``imapc_list_prefix``
--------------------------------------------
+---------------------
 
-- Default: <empty>
+See :ref:`setting-imapc_list_prefix`
 
-In dsync-based migration, only mailboxes under this prefix on the
-remote system are accessed.
-
-Example, for a source IMAP server that uses an INBOX namespace prefix:
-
-.. code-block:: none
-
-   imapc_list_prefix = INBOX/
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_master_user:
 
 ``imapc_master_user``
--------------------------------------------
+---------------------
 
-- Default: <empty>
+See :ref:`setting-imapc_master_user`
 
-If you are using master users for dsync-based migration of mail,
-this is the master user for the source IMAP server.
-
-To authenticate as a master user but use a separate login user, the
-following configuration should be employed, where the credentials are
-represented by masteruser and masteruser-secret:
-
-.. code-block:: none
-
-   imapc_user = %u
-   imapc_master_user = masteruser
-   imapc_password = masteruser-secret
-
-:ref:`Mail user variables <variables-mail_user>` can be used.
-
-See also :ref:`setting-imapc_password`.
-See also :ref:`setting-imapc_user`.
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_max_idle_time:
 
 ``imapc_max_idle_time``
--------------------------------------------
+-----------------------
 
-- Default: ``29mins``
-- Values:  :ref:`time`
+See :ref:`setting-imapc_max_idle_time`
 
-Send a command to the source IMAP server as a keepalove after no other command
-has been sent for this amount of time.
-
-Dovecot will send either "NOOP" or "DONE" to the source IMAP server.
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_max_line_length:
 
 ``imapc_max_line_length``
--------------------------------------------
+-------------------------
 
-- Default: ``0``
-- Values:  :ref:`size`
+See :ref:`setting-imapc_max_line_length`
 
-The maximum line length to accept from the remote IMAP server.
-
-This setting is used to limit maximum memory usage.
-
-A value of ``0`` indicates no maximum.
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_password:
 
 ``imapc_password``
--------------------------------------------
+------------------
 
-- Default: <empty>
+See :ref:`setting-imapc_password`
 
-The password used in the login to the source IMAP server for migration of mail
-via dsync.
-
-If using master users, this setting will be the password of the master user.
-
-See also :ref:`setting-imapc_master_user`.
-
-See also :ref:`setting-imapc_user`.
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_port:
 
 ``imapc_port``
--------------------------------------------
+--------------
 
-- Default: ``143``
+See :ref:`setting-imapc_port`
 
-Port used for connection to the source IMAP server in dsync-based migration of
-mail.
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_rawlog_dir:
 
 ``imapc_rawlog_dir``
--------------------------------------------
+--------------------
 
-- Default: <empty>
+See :ref:`setting-imapc_rawlog_dir`
 
-Directory location to store raw IMAP protocol traffic logs used in
-dsync-based migration of mail..
-
-See: https://wiki.dovecot.org/Debugging/Rawlog
-
-.. todo:: Link to rawlog documentation
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_sasl_mechanisms:
 
 ``imapc_sasl_mechanisms``
--------------------------------------------
+-------------------------
 
-- Default: <empty>
+See :ref:`setting-imapc_sasl_mechanisms`
 
-The SASL mechanisms to use for authentication when connection to a remote
-IMAP server during dsync-based migration of mail.
-
-The first one advertised by the IMAP sever is used.
-
-PLAIN authentication will be used by default.
-
-Example value:
-
-.. code-block:: none
-
-   imapc_sasl_mechanisms = external plain login
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_ssl:
 
 ``imapc_ssl``
--------------------------------------------
+-------------
 
-- Default: ``no``
-- Values: ``yes``, ``no``, or ``imaps``
+See :ref:`setting-imapc_ssl`
 
-To enable SSL for dsync-based migration of mail, use ``imapc_ssl = imaps``
-to specify the protocol for connection to the source IMAP server.
-
-.. todo:: Values are incorrect?  At least "imaps" is also supported.
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_ssl_verify:
 
 ``imapc_ssl_verify``
--------------------------------------------
+--------------------
 
-- Default: ``yes``
-- Values: :ref:`boolean`
+See :ref:`setting-imapc_ssl_verify`
 
-Require SSL verification of remote IMAP account certificate during dsync-based
-migration of mail.
-
-Verification may be disabled during testing, but should be enabled during
-production use.
-
-.. todo:: Indicate dsync setting
-
-
-.. _setting-imapc_user:
 
 ``imapc_user``
--------------------------------------------
+--------------
 
-- Default: <empty>
-
-The user identity to be used for performing a regular IMAP LOGIN to the
-source IMAP server in dsync-based migration of mail.
-
-:ref:`Mail user variables <variables-mail_user>` can be used.
-
-See also :ref:`setting-imapc_master_user`.
-See also :ref:`setting-imapc_password`.
-
-.. todo:: Indicate dsync setting
+See :ref:`setting-imapc_user`
 
 
 .. _setting-import_environment:
 
 ``import_environment``
--------------------------------------------
+----------------------
 
 - Default: ``TZ CORE_OUTOFMEM CORE_ERROR``
 
@@ -1952,11 +1788,10 @@ assigning variables the desired value upon Dovecot startup.
 .. todo:: Explain default variables
 
 
-
 .. _setting-info_log_path:
 
 ``info_log_path``
--------------------------------------------
+-----------------
 
 The log file to use for informational messages. The default is to use
 :ref:`setting-log_path` for informational messages too.
@@ -1965,7 +1800,7 @@ The log file to use for informational messages. The default is to use
 .. _setting-instance_name:
 
 ``instance_name``
--------------------------------------------
+-----------------
 
 - Default: ``dovecot``
 
@@ -1978,7 +1813,7 @@ the config path, you can use the ``-i`` flag with the relevant instance name.
 .. _setting-last_valid_gid:
 
 ``last_valid_gid``
--------------------------------------------
+------------------
 
 - Default: ``0``
 - Values: :ref:`uint`
@@ -1998,7 +1833,7 @@ See also :ref:`setting-first_valid_gid`.
 .. _setting-last_valid_uid:
 
 ``last_valid_uid``
--------------------------------------------
+------------------
 
 - Default: ``0``
 - Values: :ref:`uint`
@@ -2015,7 +1850,7 @@ See also :ref:`setting-last_valid_uid`.
 .. _setting-lda_mailbox_autocreate:
 
 ``lda_mailbox_autocreate``
--------------------------------------------
+--------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -2029,7 +1864,7 @@ save a mail message?
 .. _setting-lda_mailbox_autosubscribe:
 
 ``lda_mailbox_autosubscribe``
--------------------------------------------
+-----------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -2042,7 +1877,7 @@ Should automatically created mailboxes be subscribed to?
 .. _setting-lda_original_recipient_header:
 
 ``lda_original_recipient_header``
--------------------------------------------
+---------------------------------
 
 - Default: <empty>
 
@@ -2061,7 +1896,7 @@ Example:
 .. _setting-libexec_dir:
 
 ``libexec_dir``
--------------------------------------------
+---------------
 
 - Default: ``/usr/libexec/dovecot``
 
@@ -2071,7 +1906,7 @@ The directory from which you execute commands via doveadm-exec.
 .. _setting-listen:
 
 ``listen``
--------------------------------------------
+----------
 
 - Default: ``*``, ``::``
 
@@ -2091,17 +1926,39 @@ Example:
 .. _setting-lmtp_add_received_header:
 
 ``lmtp_add_received_header``
--------------------------------------------
+----------------------------
+
+.. versionadded:: v2.3.9
 
 - Default: ``yes``
 - Values: :ref:`boolean`
 
 Controls if "Received:" header should be added to delivered mails.
 
+
+.. _setting-lmtp_address_translate:
+
+``lmtp_address_translate``
+--------------------------
+
+.. versionremoved:: 2.3.0
+
+- Default: <empty>
+- Values: :ref:`string`
+
+Allows rewriting LMTP recipient address. Supports only %u, %d, %n variables.
+
+Example:
+
+.. code-block:: none
+
+   lmtp_address_translate = %n@otherdomain.com
+
+
 .. _setting-lmtp_client_workarounds:
 
 ``lmtp_client_workarounds``
--------------------------------------
+---------------------------
 
 .. versionadded:: v2.3.9
 
@@ -2118,7 +1975,7 @@ space-separated. Supported workaround identifiers are:
 .. _setting-lmtp_hdr_delivery_address:
 
 ``lmtp_hdr_delivery_address``
--------------------------------------------
+-----------------------------
 
 - Default: ``final``
 
@@ -2137,7 +1994,7 @@ Options:
 .. _setting-lmtp_proxy:
 
 ``lmtp_proxy``
--------------------------------------------
+--------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -2146,16 +2003,15 @@ Proxy to other LMTP/SMTP servers?
 
 Proxy destination is determined via passdb lookup parameters.
 
-See: https://wiki.dovecot.org/PasswordDatabase/ExtraFields/Proxy
+See :ref:`authentication-proxies`
 
-.. todo:: Link to proxy documentation
 .. todo:: Indicate LMTP setting
 
 
 .. _setting-lmtp_proxy_rawlog_dir:
 
 ``lmtp_proxy_rawlog_dir``
--------------------------------------------
+-------------------------
 
 - Default: <empty>
 
@@ -2165,16 +2021,15 @@ Directory location to store raw LMTP proxy protocol traffic logs.
 However, because LMTP session starts without a user, all user-specific
 variables expand to empty.
 
-See: https://wiki.dovecot.org/Debugging/Rawlog
+See :ref:`debugging_rawlog`
 
 .. todo:: Indicate LMTP setting
-.. todo:: Link to rawlog documentation
 
 
 .. _setting-lmtp_rawlog_dir:
 
 ``lmtp_rawlog_dir``
--------------------------------------------
+-------------------
 
 - Default: <empty>
 
@@ -2184,16 +2039,15 @@ Directory location to store raw LMTP protocol traffic logs.
 However, because LMTP session starts without a user, all user-specific
 variables expand to empty.
 
-See: https://wiki.dovecot.org/Debugging/Rawlog
+See :ref:`debugging_rawlog`
 
 .. todo:: Indicate LMTP setting
-.. todo:: Link to rawlog documentation
 
 
 .. _setting-lmtp_rcpt_check_quota:
 
 ``lmtp_rcpt_check_quota``
--------------------------------------------
+-------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -2209,7 +2063,7 @@ default.
 .. _setting-lmtp_save_to_detail_mailbox:
 
 ``lmtp_save_to_detail_mailbox``
--------------------------------------------
+-------------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -2223,7 +2077,7 @@ user+detail format), save the message to the detail mailbox.
 .. _setting-lmtp_user_concurrency_limit:
 
 ``lmtp_user_concurrency_limit``
-----------------------------------
+-------------------------------
 
 - Default: ``0``
 - Values: :ref:`uint`
@@ -2240,7 +2094,7 @@ causing delays to other deliveries.
 .. _setting-lock_method:
 
 ``lock_method``
-------------------------
+---------------
 
 - Default: ``fcntl``
 - Values: ``fcntl, flock, dotlock``
@@ -2258,31 +2112,31 @@ lock_method to one of the above values.
 .. _setting-log_core_filter:
 
 ``log_core_filter``
-------------------------
+-------------------
 
 - Default: <empty>
 
-Crash after logging a matching event.
+Crash after logging a matching event.  The syntax of the filter is described
+in :ref:`event_filter_global`.
 
 For example
 
 .. code-block:: none
 
-   log_core_filter = category:error
+   log_core_filter = category=error
 
 will crash any time an error is logged, which can be useful for debugging.
-
-.. todo:: Better description
 
 
 .. _setting-log_debug:
 
 ``log_debug``
-------------------------
+-------------
 
 - Default: <empty>
 
-Filter to specify what debug logging to enable.
+Filter to specify what debug logging to enable.  The syntax of the filter is
+described in :ref:`event_filter_global`.
 
 This will eventually replace ``mail_debug`` and ``auth_debug`` settings.
 
@@ -2290,13 +2144,11 @@ See :ref:`setting-auth_debug`
 
 See :ref:`setting-mail_debug`
 
-.. todo:: Better description
-
 
 .. _setting-log_path:
 
 ``log_path``
------------------------
+------------
 
 - Default: ``syslog``
 
@@ -2329,7 +2181,7 @@ If you don't want errors, info, and debug logs all in one file, specify
 .. _setting-log_timestamp:
 
 ``log_timestamp``
-----------------------------------------
+-----------------
 
 - Default: ``%b %d %H:%M:%S``
 - Values:  :ref:`string`
@@ -2342,7 +2194,7 @@ The prefix for each line written to the log file.
 .. _setting-login_access_sockets:
 
 ``login_access_sockets``
-----------------------------------------
+------------------------
 
 - Default: <empty>
 
@@ -2356,7 +2208,7 @@ allowed for the incoming connection.
 .. _setting-login_greeting:
 
 ``login_greeting``
-----------------------------------------
+------------------
 
 - Default: ``Dovecot ready.``
 - Values:  :ref:`string`
@@ -2371,7 +2223,7 @@ Variables:
 .. _setting-login_log_format:
 
 ``login_log_format``
-----------------------------------------
+--------------------
 
 - Default: ``%$: %s``
 - Values:  :ref:`string`
@@ -2390,7 +2242,7 @@ See :ref:`setting-login_log_format_elements`
 .. _setting-login_log_format_elements:
 
 ``login_log_format_elements``
-----------------------------------------
+-----------------------------
 
 - Default: ``user=<%u> method=%m rip=%r lip=%l mpid=%e %c``
 - Values:  :ref:`string`
@@ -2410,7 +2262,7 @@ Variable Long name      Description
 %d       domain         domain part in user@domain, empty if user with no domain
 %h       home           Expands to HOME environment. Usually means it's empty.
 %p       pid            PID of the current process
-%m       mech           `authentication mechanism <https://wiki.dovecot.org/Authentication/Mechanisms>`_ e.g. PLAIN
+%m       mech           :ref:`authentication-authentication_mechanisms` e.g. PLAIN
 %a       lport          local port
 %b       rport          remote port
 %c       secured        "secured" string with SSL, TLS and localhost connections. Otherwise empty.
@@ -2437,7 +2289,7 @@ Variable Long name      Description
 .. _setting-login_plugin_dir:
 
 ``login_plugin_dir``
-----------------------------------------
+--------------------
 
 - Default: ``/usr/lib64/dovecot/login``
 
@@ -2447,17 +2299,47 @@ Location of the login plugin directory.
 .. _setting-login_plugins:
 
 ``login_plugins``
-----------------------------------------
+-----------------
 
 - Default: <empty>
 
 List of plugins to load for IMAP and POP3 login processes.
 
 
+.. _setting-login_proxy_timeout:
+
+``login_proxy_timeout``
+-----------------------
+
+.. versionadded:: v2.3.12
+
+- Default:``30 secs``
+- Values: :ref:`time_msecs`
+
+Timeout for login proxy failures.
+The timeout covers everything from the time connection is started until a successful login reply is received.
+This can be overwritten by proxy_timeout passdb extra field.
+
+
+.. _setting-login_proxy_max_reconnects:
+
+``login_proxy_max_reconnects``
+------------------------------
+
+.. versionadded:: v2.3.12
+
+- Default:``3``
+
+How many times login proxy will attempt to reconnect to destination server on connection failures (3 reconnects = total 4 connection attempts).
+Reconnecting is done for most types of failures, except for regular authentication failures.
+There is a 1 second delay between each reconnection attempt.
+If :ref:`setting-login_proxy_timeout` is reached, further reconnects aren't attempted.
+
+
 .. _setting-login_proxy_max_disconnect_delay:
 
 ``login_proxy_max_disconnect_delay``
-----------------------------------------
+------------------------------------
 
 - Default:``0``
 
@@ -2473,7 +2355,7 @@ disconnection is spread over the amount of time indicated.
 .. _setting-login_proxy_notify_path:
 
 ``login_proxy_notify_path``
-----------------------------------------
+---------------------------
 
 - Default: ``proxy-notify``
 
@@ -2489,7 +2371,7 @@ The default is OK and doesn't need to be change.
 .. _setting-login_source_ips:
 
 ``login_source_ips``
-----------------------------------------
+--------------------
 
 - Default: <empty>
 - Values:  :ref:`ip_addresses`
@@ -2514,25 +2396,85 @@ Example Setting:
 .. _setting-login_trusted_networks:
 
 ``login_trusted_networks``
-----------------------------------------
+--------------------------
 
 - Default: <empty>
 
 A space-separated list of trusted network ranges.
 
-Typically used for IMAP proxy servers, allowing them to
-report a different IP address and port as the connection's origin for
-purposes of logging and authentication checks.
+This setting is used for a few different purposes, but most importantly it allows the client connection to tell the server what the original client's IP address was.
+This original client IP address is then used for logging and authentication checks.
 
-The ``disable_plaintext_auth setting`` is ignored for these networks.
+Plaintext authentication is always allowed for trusted networks (:ref:`setting-disable_plaintext_auth` is ignored).
 
-See :ref:`setting-disable_plaintext_auth`
+The details of how this setting works depends on the used protocol:
+
+IMAP:
+
+ * ID command can be used to override:
+
+   * Session ID
+   * Client IP and port (``%{rip}``, ``%{rport}``)
+   * Server IP and port (``%{lip}``, ``%{lport}``)
+
+ * ``forward_*`` fields can be sent to auth process's passdb lookup
+ * The trust is always checked against the connecting IP address.
+   Except if HAProxy is used, then the original client IP address is used.
+
+POP3:
+
+ * XCLIENT command can be used to override:
+
+   * Session ID
+   * Client IP and port (``%{rip}``, ``%{rport}``)
+
+ * ``forward_*`` fields can be sent to auth process's passdb lookup
+ * The trust is always checked against the connecting IP address.
+   Except if HAProxy is used, then the original client IP address is used.
+
+ManageSieve:
+
+ * XCLIENT command can be used to override:
+
+   * Session ID
+   * Client IP and port (``%{rip}``, ``%{rport}``)
+
+ * The trust is always checked against the connecting IP address.
+   Except if HAProxy is used, then the original client IP address is used.
+
+Submission:
+
+ * XCLIENT command can be used to override:
+
+   * Session ID
+   * Client IP and port (``%{rip}``, ``%{rport}``)
+   * HELO - Overrides what the client sent earlier in the EHLO command
+   * LOGIN - Currently unused
+   * PROTO - Currently unused
+
+ * ``forward_*`` fields can be sent to auth process's passdb lookup
+ * The trust is always checked against the connecting IP address.
+   Except if HAProxy is used, then the original client IP address is used.
+
+LMTP:
+
+ * XCLIENT command can be used to override:
+
+   * Session ID
+   * Client IP and port (``%{rip}``, ``%{rport}``)
+   * HELO - Overrides what the client sent earlier in the LHLO command
+   * LOGIN - Currently unused
+   * PROTO - Currently unused
+   * TIMEOUT (overrides :ref:`setting-mail_max_lock_timeout`)
+
+ * The trust is always checked against the connecting IP address.
+   Except if HAProxy is used, then the original client IP address is used.
 
 
 .. _setting-mail_access_groups:
 
 ``mail_access_groups``
-----------------------------------------
+----------------------
 
 - Default: <empty>
 
@@ -2552,7 +2494,7 @@ others' mail).
 .. _setting-mail_always_cache_fields:
 
 ``mail_always_cache_fields``
-----------------------------------------
+----------------------------
 
 - Default: <empty>
 
@@ -2569,36 +2511,40 @@ See :ref:`setting-mail_never_cache_fields`
 .. _setting-mail_attachment_detection_options:
 
 ``mail_attachment_detection_options``
-----------------------------------------
+-------------------------------------
 
 - Default: <empty>
 
-Settings to control adding $HasAttachment or $HasNoAttachment keywords.
-By default, all MIME parts with Content-Disposition=attachment, or inlines with filename parameter are consired attachments.
+Settings to control adding ``$HasAttachment`` or ``$HasNoAttachment`` keywords. By default, all MIME parts with ``Content-Disposition=attachment``, or inlines with filename parameter are considered attachments.
 
-To enable this feature, you can set mail_attachment_detection_options.
+To enable this feature, this setting needs at least one option specified.
 
-It supports following options
+Options:
 
-* **add-flags-on-save** - Enables the feature, attachments are detected and marked during save
-* **content-type=type|!type** - Include or exclude given content type. Including will only negate an exclusion (e.g. content-type=!foo/* content-type=foo/bar).
+* **add-flags** - Attachments are detected and marked during save.
+  Detection is done also during fetch if it can be done without extra disk IO and with minimal CPU cost.
+  This means that either both ``mime.parts`` and ``imap.bodystructure`` has to be in cache already, or if mail body is opened in any case.
+
+  .. versionadded:: v2.3.13
+* **add-flags-on-save** - Deprecated alias for **add-flags**.
+  Before v2.3.13 the detection was done only during save, not during fetch.
+
+  .. deprecated:: v2.3.13
+* **add-flags no-flags-on-fetch** - Flags are added during save, but not during fetch.
+  This option will likely be removed in a later release.
+
+  .. versionadded:: v2.3.13
+* **content-type=type|!type** - Include or exclude given content type. Including will only negate an exclusion (e.g. ``content-type=!foo/* content-type=foo/bar``).
 * **exclude-inlined** - Do not consider any attachment with disposition inlined.
 
 .. todo:: Description
 .. todo:: Explain value format: comma-separate list?
 
 
-Options:
-
-* ``add-flags-on-save``: Attachments are detected and marked during save
-* ``content-type=<type>|!<type~``: Include or exclude given content type. Including will only negate an exclusion (e.g. ``content-type = !foo/* content-type = foo/bar``).
-* ``exclude-inlined``: Ignore any attachment marked as inline disposition
-
-
 .. _setting-mail_attachment_dir:
 
 ``mail_attachment_dir``
-----------------------------------------
+-----------------------
 
 - Default: <empty>
 
@@ -2615,7 +2561,7 @@ If no value is specified, attachment saving to external files is disabled.
 .. _setting-mail_attachment_fs:
 
 ``mail_attachment_fs``
-----------------------------------------
+----------------------
 
 - Default: ``sis posix``
 
@@ -2633,7 +2579,7 @@ Options:
 .. _setting-mail_attachment_hash:
 
 ``mail_attachment_hash``
-----------------------------------------
+------------------------
 
 - Default: ``%{sha1}``
 - Values: ``%{md4}, %{md5}, %{sha1}, %{sha256}, %{sha512}, %{size}``
@@ -2650,7 +2596,7 @@ will return only the first 80 bits of the SHA256 output.
 .. _setting-mail_attachment_min_size:
 
 ``mail_attachment_min_size``
-----------------------------------------
+----------------------------
 
 - Default: ``128k``
 - Values:  :ref:`size`
@@ -2661,7 +2607,7 @@ Attachments below this size will not be saved externally.
 .. _setting-mail_attribute_dict:
 
 ``mail_attribute_dict``
-----------------------------------------
+-----------------------
 
 - Default: <empty>
 
@@ -2682,75 +2628,10 @@ See :ref:`setting-imap_metadata`
 .. todo:: Indicate metadata setting
 
 
-.. _setting-mail_cache_compress_continued_percentage:
-
-``mail_cache_compress_continued_percentage``
--------------------------------------------------------------
-
-- Default: ``200``
-- Values: :ref:`uint`
-
-Compress the cache file when n% of rows contain continued rows.
-
-For example ``200`` means that the record has 2 continued rows, i.e. it exists
-in 3 separate segments in the cache file.
-
-The default is OK and doesn't need to be change. 
-
-.. todo:: Should not be changed
-
-
-.. _setting-mail_cache_compress_delete_percentage:
-
-``mail_cache_compress_delete_percentage``
-------------------------------------------------------
-
-- Default: ``20``
-- Values: :ref:`uint`
-
-Compress the cache file when n% of records are deleted (by count, not by
-size).
-
-The default is OK and doesn't need to be change. 
-
-.. todo:: Should not be changed
-
-
-.. _setting-mail_cache_compress_header_continue_count:
-
-``mail_cache_compress_header_continue_count``
-----------------------------------------------------------
-
-- Default: ``4``
-- Values: :ref:`uint`
-
-Compress the cache file when we need to follow more than n next_offsets to
-find the latest cache header.
-
-The default is OK and doesn't need to be change. 
-
-.. todo:: Should not be changed
-
-
-.. _setting-mail_cache_compress_min_size:
-
-``mail_cache_compress_min_size``
--------------------------------------
-
-- Default: ``32k``
-- Values:  :ref:`size`
-
-Only compress cache file if it is larger than this size.
-
-The default is OK and doesn't need to be change. 
-
-.. todo:: Should not be changed
-
-
 .. _setting-mail_cache_fields:
 
 ``mail_cache_fields``
--------------------------------------
+---------------------
 
 - Default: ``flags``
 
@@ -2770,7 +2651,7 @@ See :ref:`setting-mail_never_cache_fields`
 .. _setting-mail_cache_min_mail_count:
 
 ``mail_cache_min_mail_count``
----------------------------------------------
+-----------------------------
 
 - Default: ``0``
 - Values: :ref:`uint`
@@ -2781,60 +2662,10 @@ With a setting other than ``0``, you can optimize behavior for fewer disk
 writes at the cost of more disk reads.
 
 
-.. _setting-mail_cache_max_size:
-
-``mail_cache_max_size``
--------------------------------------
-
-.. versionadded:: v2.3.11
-
-- Default: ``1G``
-- Values:  :ref:`size`
-
-If dovecot.index.cache becomes becomes larger than this, it's truncated to
-empty size. The maximum value is 1 GB because the cache file format can't
-currently support large sizes.
-
-.. _setting-mail_cache_record_max_size:
-
-``mail_cache_record_max_size``
--------------------------------------
-
-- Default: ``64k``
-- Values:  :ref:`size`
-
-If a cache record becomes larger than this, don't add it to the cache file.
-
-The default is OK and doesn't need to be change. 
-
-.. todo:: Should not be changed
-
-
-.. _setting-mail_cache_unaccessed_field_drop:
-
-``mail_cache_unaccessed_field_drop``
--------------------------------------
-
-- Default: ``30days``
-- Values:  :ref:`time`
-
-Specifies when cache decisions are downgraded.
-
-.. versionchanged:: v2.3.11 Change caching decision from YES to TEMP after this
-                    much time has passed. Drop the field entirely after twice
-                    this much time has passed (i.e. 60 days by default),
-                    regardless of whether the cache decision was YES or TEMP
-                    previously. Older versions used this setting only for
-                    dropping the field after it hadn't been accessed for this
-                    long.
-
-See :ref:`mail_cache_settings` for details.
-
-
 .. _setting-mail_chroot:
 
 ``mail_chroot``
--------------------------------------
+---------------
 
 - Default: <empty>
 
@@ -2848,7 +2679,7 @@ This chroots all users globally into the same directory.
 .. _setting-mail_debug:
 
 ``mail_debug``
--------------------------------------
+--------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -2861,23 +2692,32 @@ isn't finding certain mail messages.
 .. _setting-mail_fsync:
 
 ``mail_fsync``
--------------------------------------
+--------------
 
 - Default: ``optimized``
 
 Specify when to use fsync() or fdatasync() calls.
+Using fsync waits until the data is written to disk before it continues, which is used to prevent corruption or data loss in case of server crashes.
+This setting applies to mail files and index files on the filesystem.
+This setting doesn't apply to object storage operations.
 
 Options:
 
-* ``always``: Useful for NFS, when write()s are delayed
-* ``never``: Better performance, but risk of data loss in a crash
-* ``optimized``: Recommended for avoiding loss of important data
+* ``always``: Use fsync after all disk writes.
+  Recommended for NFS to make sure there aren't any delayed write()s.
+* ``optimized``: Use fsync after important disk writes.
+  For example cache file writes aren't fsynced, because they can be regenerated if necessary.
+* ``never``: Never fsync any disk writes.
+  This provides the best performance, but risks losing recently saved emails in case of a crash with most mailbox formats.
+
+  With obox format this option is recommended to be used, because it affects only the local metacache operations.
+  If a server crashes, the existing metacache is treated as potentially corrupted and isn't used.
 
 
 .. _setting-mail_full_filesystem_access:
 
 ``mail_full_filesystem_access``
--------------------------------------
+-------------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -2894,7 +2734,7 @@ mailboxes' names with /path/ or ~user/ indicators.
 .. _setting-mail_gid:
 
 ``mail_gid``
--------------------------------------
+------------
 
 - Default: <empty>
 
@@ -2913,7 +2753,7 @@ See :ref:`setting-mail_uid`
 .. _setting-mail_home:
 
 ``mail_home``
--------------------------------------
+-------------
 
 - Default: <empty>
 
@@ -2930,125 +2770,13 @@ mail=/var/vmail/domain/user/mail/:
 
 See :ref:`setting-mail_location`
 
-See: https://wiki.dovecot.org/QuickConfiguration
-
-.. todo:: Link to configuration page - this is too complex for config page
-
-
-.. _setting-mail_index_log2_max_age:
-
-``mail_index_log2_max_age``
--------------------------------------
-
-- Default: ``2days``
-- Values:  :ref:`time`
-
-Delete .log.2 index file when older than this value.
-
-Older .log.2 files are useful for QRESYNC and dsync, so this value should not
-be too low.
-
-The default is OK and doesn't need to be change. 
-
-.. todo:: Should not be changed
-
-
-.. _setting-mail_index_log_rotate_max_size:
-
-``mail_index_log_rotate_max_size``
--------------------------------------
-
-- Default: ``1M``
-- Values:  :ref:`size`
-
-Always rotate transaction log after it exceeds this size.
-
-The default is OK and doesn't need to be changed.
-
-.. todo:: Should not be changed
-
-See also:
-
-* :ref:`setting-mail_index_log_rotate_min_age`
-* :ref:`setting-mail_index_log_rotate_min_size`
-
-
-.. _setting-mail_index_log_rotate_min_age:
-
-``mail_index_log_rotate_min_age``
--------------------------------------
-
-- Default: ``5mins``
-- Values:  :ref:`time`
-
-Rotate transaction log if it is older than this value and is larger than
-:ref:`setting-mail_index_log_rotate_min_size`.
-
-The default is OK and doesn't need to be changed.
-
-See :ref:`setting-mail_index_log_rotate_max_size`
-
-.. todo:: Should not be changed
-
-
-.. _setting-mail_index_log_rotate_min_size:
-
-``mail_index_log_rotate_min_size``
--------------------------------------
-
-- Default: ``32k``
-- Values:  :ref:`size`
-
-Rotate transaction log if it is larger than this size and is older than
-:ref:`setting-mail_index_log_rotate_min_age`.
-
-The default is OK and doesn't need to be changed.
-
-See :ref:`setting-mail_index_log_rotate_max_size`
-
-.. todo:: Should not be changed
-
-
-.. _setting-mail_index_rewrite_max_log_bytes:
-
-``mail_index_rewrite_max_log_bytes``
--------------------------------------
-
-- Default: ``128k``
-- Values:  :ref:`size`
-
-Rewrite the index when the number of bytes that needs to be read from the
-.log index file on refresh is between these min/max values.
-
-The default is OK and doesn't need to be changed.
-
-See :ref:`setting-mail_index_rewrite_min_log_bytes`
-
-.. todo:: Should not be changed
-
-
-.. _setting-mail_index_rewrite_min_log_bytes:
-
-``mail_index_rewrite_min_log_bytes``
--------------------------------------
-
-- Default: ``8k``
-- Values:  :ref:`size`
-
-Rewrite the index when the number of bytes that needs to be read from the
-.log index file on refresh is between these min/max values.
-
-The default is OK and doesn't need to be changed.
-
-See :ref:`setting-mail_index_rewrite_max_log_bytes`
-
-.. todo:: Should not be changed
+See :ref:`quick_configuration`
 
 
 .. _setting-mail_location:
 
 ``mail_location``
--------------------------------------
+-----------------
 
 - Default: <empty>
 
@@ -3065,7 +2793,7 @@ explicitly state the full location here, if possible.
 .. _setting-mail_log_prefix:
 
 ``mail_log_prefix``
--------------------------------------
+-------------------
 
 - Default: ``%s(%u)<%{pid}><%{session}>:``
 
@@ -3083,7 +2811,7 @@ Example setting:
 .. _setting-mail_max_keyword_length:
 
 ``mail_max_keyword_length``
--------------------------------------
+---------------------------
 
 - Default: ``50``
 - Values: :ref:`uint`
@@ -3096,7 +2824,7 @@ Compliance is enforced only during attempts to create new keywords
 .. _setting-mail_max_lock_timeout:
 
 ``mail_max_lock_timeout``
--------------------------------------
+-------------------------
 
 - Default: ``0``
 
@@ -3113,7 +2841,7 @@ tolerate tempfailing less well.
 .. _setting-mail_max_userip_connections:
 
 ``mail_max_userip_connections``
--------------------------------------
+-------------------------------
 
 - Default: ``10``
 - Values: :ref:`uint`
@@ -3129,7 +2857,7 @@ Unique users are identified via case-sensitive comparison.
 .. _setting-mail_never_cache_fields:
 
 ``mail_never_cache_fields``
--------------------------------------
+---------------------------
 
 - Default: ``imap.envelope``
 
@@ -3147,7 +2875,7 @@ See :ref:`setting-mail_always_cache_fields`
 .. _setting-mail_nfs_index:
 
 ``mail_nfs_index``
--------------------------------------
+------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -3167,7 +2895,7 @@ See :ref:`setting-mmap_disable`
 .. _setting-mail_nfs_storage:
 
 ``mail_nfs_storage``
--------------------------------------
+--------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -3180,7 +2908,7 @@ This setting should only be enabled if you are using multiple servers on NFS.
 .. _setting-mail_plugin_dir:
 
 ``mail_plugin_dir``
--------------------------------------
+-------------------
 
 - Default: ``/usr/lib64/dovecot``
 
@@ -3192,7 +2920,7 @@ See :ref:`setting-mail_plugins`
 .. _setting-mail_plugins:
 
 ``mail_plugins``
--------------------------------------
+----------------
 
 - Default: <empty>
 
@@ -3204,7 +2932,7 @@ See :ref:`setting-mail_plugin_dir`
 .. _setting-mail_prefetch_count:
 
 ``mail_prefetch_count``
--------------------------------------
+-----------------------
 
 - Default: ``0``
 - Values: :ref:`uint`
@@ -3219,7 +2947,7 @@ Behavior is dependent on the operating system and mailbox format.
 .. _setting-mail_privileged_group:
 
 ``mail_privileged_group``
--------------------------------------
+-------------------------
 
 - Default: <empty>
 
@@ -3241,7 +2969,7 @@ You can give Dovecot access to mail group by setting:
 .. _setting-mail_save_crlf:
 
 ``mail_save_crlf``
--------------------------------------
+------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -3259,7 +2987,7 @@ some deployments.
 .. _setting-mail_server_admin:
 
 ``mail_server_admin``
--------------------------------------
+---------------------
 
 - Default: <empty>
 
@@ -3283,7 +3011,7 @@ See :ref:`setting-imap_metadata`
 .. _setting-mail_server_comment:
 
 ``mail_server_comment``
--------------------------------------
+-----------------------
 
 - Default: <empty>
 
@@ -3300,7 +3028,7 @@ See :ref:`setting-imap_metadata`
 .. _setting-mail_shared_explicit_inbox:
 
 ``mail_shared_explicit_inbox``
--------------------------------------
+------------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -3314,7 +3042,7 @@ This setting determines whether a shared INBOX should be visible as
 .. _setting-mail_sort_max_read_count:
 
 ``mail_sort_max_read_count``
--------------------------------------
+----------------------------
 
 - Default: ``0``
 - Values: :ref:`uint`
@@ -3338,7 +3066,7 @@ Often this produces mostly the same result, especially in the INBOX.
 .. _setting-mail_temp_dir:
 
 ``mail_temp_dir``
--------------------------------------
+-----------------
 
 - Default: ``/tmp``
 
@@ -3354,7 +3082,7 @@ that is above 128kB in size.
 .. _setting-mail_temp_scan_interval:
 
 ``mail_temp_scan_interval``
--------------------------------------
+---------------------------
 
 - Default: ``1week``
 - Values:  :ref:`time`
@@ -3369,7 +3097,7 @@ A value of ``0`` means this scan never occurs.
 .. _setting-mail_uid:
 
 ``mail_uid``
--------------------------------------
+------------
 
 - Default: <empty>
 
@@ -3386,7 +3114,7 @@ See :ref:`setting-mail_gid`
 .. _setting-mail_vsize_bg_after_count:
 
 ``mail_vsize_bg_after_count``
--------------------------------------
+-----------------------------
 
 - Default: ``0``
 - Values: :ref:`uint`
@@ -3402,15 +3130,13 @@ This may happen when mail messages do not have their virtual sizes cached.
 When indexing is occuring in the background, explicit quota size queries
 return an internal error and mail deliveries are assumed to succeed.
 
-See: https://wiki.dovecot.org/Quota
-
-.. todo:: Link to quota page
+See :ref:`quota_plugin`
 
 
 .. _setting-mailbox_idle_check_interval:
 
 ``mailbox_idle_check_interval``
--------------------------------------
+-------------------------------
 
 - Default: ``30secs``
 - Values:  :ref:`time`
@@ -3424,7 +3150,7 @@ is in the IMAP IDLE state.
 .. _setting-mailbox_list_index:
 
 ``mailbox_list_index``
--------------------------------------
+----------------------
 
 - Default: ``yes``
 - Values: :ref:`boolean`
@@ -3443,7 +3169,7 @@ NOTIFY extension.
 .. _setting-mailbox_list_index_include_inbox:
 
 ``mailbox_list_index_include_inbox``
--------------------------------------
+------------------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -3458,7 +3184,7 @@ See :ref:`setting-mailbox_list_index`
 .. _setting-mailbox_list_index_very_dirty_syncs:
 
 ``mailbox_list_index_very_dirty_syncs``
-----------------------------------------------
+---------------------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -3467,84 +3193,40 @@ If enabled, assume that the mailbox list index is fully updated so that
 stat() will not be run for mailbox files/directories.
 
 
-.. _setting-maildir_broken_filename_sizes:
-
 ``maildir_broken_filename_sizes``
--------------------------------------
+---------------------------------
 
-- Default: ``no``
-- Values: :ref:`boolean`
+See :ref:`setting-maildir_broken_filename_sizes`
 
-Maildir only: If enabled, do not obtain a mail message's physical size from
-the ``S=<size>`` data in the Maildir filename except when recalculating the
-Maildir++ quota.
-
-.. todo:: Indicate Maildir-only setting
-
-
-.. _setting-maildir_copy_with_hardlinks:
 
 ``maildir_copy_with_hardlinks``
--------------------------------------
+-------------------------------
 
-- Default: ``yes``
-- Values: :ref:`boolean`
+See :ref:`setting-maildir_copy_with_hardlinks`
 
-Maildir only: If enabled, copying of a message is done with hard links
-whenever possible.
-
-This greatly improves performance, and no negative effects are likely.
-
-.. todo:: Indicate Maildir-only setting
-
-
-.. _setting-maildir_empty_new:
 
 ``maildir_empty_new``
--------------------------------------
+---------------------
 
-- Default: ``no``
-- Values: :ref:`boolean`
+See :ref:`setting-maildir_empty_new`
 
-Maildir only: Should mail messages always be moved from the ``new/`` directory
-to ``cur/``, even when the ``\Recent`` flags aren't being reset?
-
-.. todo:: Indicate Maildir-only setting
-
-
-.. _setting-maildir_stat_dirs:
 
 ``maildir_stat_dirs``
--------------------------------------
+---------------------
 
-- Default: ``no``
-- Values: :ref:`boolean`
+See :ref:`setting-maildir_stat_dirs`
 
-Maildir only: If enabled, don't include directories in a LIST response that
-begin with a dot.
-
-.. todo:: Indicate Maildir-only setting
-
-
-.. _setting-maildir_very_dirty_syncs:
 
 ``maildir_very_dirty_syncs``
--------------------------------------
+----------------------------
 
-- Default: ``no``
-- Values: :ref:`boolean`
-
-Maildir: If disabled, Dovecot is assumed to be the only MUA that accesses
-Maildir directly, so the ``cur/`` directory is scanned only when its mtime
-changes unexpectedly or when the mail cannot otherwise be found.
-
-.. todo:: Indicate Maildir-only setting
+See :ref:`setting-maildir_very_dirty_syncs`
 
 
 .. _setting-master_user_separator:
 
 ``master_user_separator``
--------------------------------------
+-------------------------
 
 - Default: <empty>
 
@@ -3562,237 +3244,82 @@ Example:
    master_user_separator = *
 
 
-.. _setting-mbox_dirty_syncs:
-
 ``mbox_dirty_syncs``
--------------------------------------
-
-- Default: ``yes``
-- Values: :ref:`boolean`
-
-mbox only: Enable optimized mbox syncing?
-
-For larger mbox files, it can take a long time to determine what has
-changed when the file is altered unexpectedly. Since the change in
-most cases consists solely of newly appended mail, Dovecot can
-operate more quickly if it starts off by simply reading the new
-messages, then falls back to reading the entire mbox file if
-something elsewhere in it isn't as expected.
-
-See :ref:`setting-mbox_very_dirty_syncs`
-
-.. todo:: Indicate mbox-only setting
-
-
-.. _setting-mbox_dotlock_change_timeout:
-
-``mbox_dotlock_change_timeout``
--------------------------------------
-
-- Default: ``2 mins``
-- Values:  :ref:`time`
-
-mbox only: Override a lockfile after this amount of time if a dot-lock exists
-but the mailbox hasn't been modified in any way.
-
-.. todo:: Indicate mbox-only setting
-
-
-.. _setting-mbox_lazy_writes:
-
-``mbox_lazy_writes``
--------------------------------------
-
-- Default: ``yes``
-- Values: :ref:`boolean`
-
-mbox only: If enabled, mbox headers are not written until a
-full write sync is performed (with the EXPUNGE and CHECK commands and
-during closing of the mailbox).
-
-Enabling this setting is especially useful with POP3, in which clients often
-delete all mail messages.
-
-One negative consequence of enabling this setting is that the changes aren't
-immediately visible to other MUAs.
-
-.. todo:: Indicate mbox-only setting
-
-
-.. _setting-mbox_lock_timeout:
-
-``mbox_lock_timeout``
--------------------------------------
-
-- Default: ``5mins``
-- Values:  :ref:`time`
-
-mbox only: The maximum time to wait for all locks to be released before
-aborting.
-
-.. todo:: Indicate mbox-only setting
-
-
-.. _setting-mbox_md5:
-
-``mbox_md5``
--------------------------------------
-
-- Default: ``apop3d``
-
-mbox only: The mail-header selection algorithm to use for MD5 POP3 UIDLs when
-the setting ``pop3_uidl_format=%m`` is applied.
-
-See :ref:`setting-pop3_uidl_format`
-
-.. todo:: Indicate mbox-only setting
-
-
-.. _setting-mbox_min_index_size:
-
-``mbox_min_index_size``
--------------------------------------
-
-- Default: ``0``
-
-mbox only: For mboxes smaller than this size, index files are not
-written.
-
-If an index file already exists, it gets read but not updated.
-
-The default is OK and doesn't need to be change. 
-
-.. todo:: Indicate mbox-only setting
-.. todo:: Should not be changed
-
-
-.. _setting-mbox_read_locks:
-
-``mbox_read_locks``
--------------------------------------
-
-- Default: ``fcntl``
-- Values: ``dotlock, dotlock_try, fcntl, flock, lockf``
-
-mbox only: Specify which locking method(s) to use for locking the mbox files
-during reading.
-
-To use multiple values, separate them with spaces.
-
-There are at least four different ways to lock a mbox:
-
-* **dotlock**: mailboxname.lock file created by almost all software when writing to mboxes. This grants the writer an exclusive lock over the mbox, so it's usually not used while reading the mbox so that other processes can also read it at the same time. So while using a dotlock typically prevents actual mailbox corruption, it doesn't protect against read errors if mailbox is modified while a process is reading.
-
-* **flock**: flock() system call is quite commonly used for both read and write locking. The read lock allows multiple processes to obtain a read lock for the mbox, so it works well for reading as well. The one downside to it is that it doesn't work if mailboxes are stored in NFS.
-
-* **fcntl**: Very similar to flock, also commonly used by software. In some systems this fcntl() system call is compatible with flock(), but in other systems it's not, so you shouldn't rely on it. fcntl works with NFS if you're using lockd daemon in both NFS server and client.
-
-* **lockf**: POSIX lockf() locking. Because it allows creating only exclusive locks, it's somewhat useless so Dovecot doesn't support it. With Linux lockf() is internally compatible with fcntl() locks, but again you shouldn't rely on this.
-
-
-.. todo:: Explain differences between values
-.. todo:: Indicate mbox-only setting
-
-
-.. _setting-mbox_very_dirty_syncs:
-
-``mbox_very_dirty_syncs``
--------------------------------------
-
-- Default: ``no``
-- Values: :ref:`boolean`
-
-mbox only: If enabled, Dovecot performs the optimizations from
-``mbox_dirty_syncs`` also for the IMAP SELECT, EXAMINE, EXPUNGE, and CHECK
-commands.
-
-If set, this option overrides ``mbox_dirty_syncs``.
+--------------------
 
 See :ref:`setting-mbox_dirty_syncs`
 
-.. todo:: Indicate mbox-only setting
+
+``mbox_dotlock_change_timeout``
+-------------------------------
+
+See :ref:`setting-mbox_dotlock_change_timeout`
 
 
-.. _setting-mbox_write_locks:
+``mbox_lazy_writes``
+--------------------
+
+See :ref:`setting-mbox_lazy_writes`
+
+
+``mbox_lock_timeout``
+---------------------
+
+See :ref:`setting-mbox_lock_timeout`
+
+
+``mbox_md5``
+------------
+
+See: :ref:`setting-mbox_md5`
+
+
+``mbox_min_index_size``
+-----------------------
+
+See :ref:`setting-mbox_min_index_size`
+
+
+``mbox_read_locks``
+-------------------
+
+See :ref:`setting-mbox_read_locks`
+
+
+``mbox_very_dirty_syncs``
+-------------------------
+
+See :ref:`setting-mbox_very_dirty_syncs`
+
 
 ``mbox_write_locks``
--------------------------------------
+--------------------
 
-- Default: ``dotlock fcntl``
-- Values: ``dotlock, dotlock_try, fcntl, flock, lockf``
+See :ref:`setting-mbox_write_locks`
 
-mbox only: Specify which locking method(s) to use for locking the mbox files
-during writing.
-
-To use multiple values, separate them with spaces.
-
-There are at least four different ways to lock a mbox:
-
-* **dotlock**: mailboxname.lock file created by almost all software when writing to mboxes. This grants the writer an exclusive lock over the mbox, so it's usually not used while reading the mbox so that other processes can also read it at the same time. So while using a dotlock typically prevents actual mailbox corruption, it doesn't protect against read errors if mailbox is modified while a process is reading.
-
-* **flock**: flock() system call is quite commonly used for both read and write locking. The read lock allows multiple processes to obtain a read lock for the mbox, so it works well for reading as well. The one downside to it is that it doesn't work if mailboxes are stored in NFS.
-
-* **fcntl**: Very similar to flock, also commonly used by software. In some systems this fcntl() system call is compatible with flock(), but in other systems it's not, so you shouldn't rely on it. fcntl works with NFS if you're using lockd daemon in both NFS server and client.
-
-* **lockf**: POSIX lockf() locking. Because it allows creating only exclusive locks, it's somewhat useless so Dovecot doesn't support it. With Linux lockf() is internally compatible with fcntl() locks, but again you shouldn't rely on this.
-
-.. todo:: Explain differences between values
-.. todo:: Indicate mbox-only setting
-
-
-.. _setting-mdbox_preallocate_space:
 
 ``mdbox_preallocate_space``
--------------------------------------
+---------------------------
 
-- Default: ``no``
-- Values: :ref:`boolean`
+See :ref:`setting-mdbox_preallocate_space`
 
-mdbox only: If enabled, preallocate space for newly created files.
-
-In creation of new mdbox files, their size is immediately
-preallocated as ``mdbox_rotate_size``.
-
-This setting currently works only in Linux with certain filesystems (ext4
-and xfs).
-
-See :ref:`setting-mdbox_rotate_size`
-
-.. todo:: Indicate mdbox-only setting
-
-
-.. _setting-mdbox_rotate_interval:
 
 ``mdbox_rotate_interval``
--------------------------------------
+-------------------------
 
-- Default: ``0``
-- Values:  :ref:`size`
+See :ref:`setting-mdbox_rotate_interval`
 
-mdbox only: The maximum age the dbox file may reach before it's rotated.
-
-``0`` means there is no age-based rotation.
-
-.. todo:: Indicate mdbox-only setting
-
-
-.. _setting-mdbox_rotate_size:
 
 ``mdbox_rotate_size``
--------------------------------------
+---------------------
 
-- Default: ``10M``
-- Values:  :ref:`size`
-
-mdbox only: The maximum size the dbox file may reach before it is rotated.
-
-.. todo:: Indicate mdbox-only setting
+See :ref:`setting-mdbox_rotate_size`
 
 
 .. _setting-mmap_disable:
 
 ``mmap_disable``
--------------------------------------
+----------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -3803,10 +3330,17 @@ This must be disabled if you store indexes to shared filesystems (i.e., if you
 use NFS or a clustered filesystem).
 
 
+.. _setting-namespace:
+
+``namespace``
+-------------
+
+Declares new namespace, see :ref:`namespaces` for more details.
+
 .. _setting-old_stats_carbon_interval:
 
 ``old_stats_carbon_interval``
--------------------------------------
+-----------------------------
 
 .. versionadded:: v2.2.27
 
@@ -3823,7 +3357,7 @@ See :ref:`setting-old_stats_carbon_server`
 .. _setting-old_stats_carbon_name:
 
 ``old_stats_carbon_name``
--------------------------------------
+-------------------------
 
 .. versionadded:: v2.2.27
 
@@ -3847,7 +3381,7 @@ See :ref:`setting-old_stats_carbon_server`
 .. _setting-old_stats_carbon_server:
 
 ``old_stats_carbon_server``
--------------------------------------
+---------------------------
 
 .. versionadded:: v2.2.27
 
@@ -3869,7 +3403,7 @@ Example Setting:
 .. _setting-old_stats_command_min_time:
 
 ``old_stats_command_min_time``
--------------------------------------
+------------------------------
 
 - Default: ``1min``
 - Values:  :ref:`time`
@@ -3885,7 +3419,7 @@ See :ref:`setting-old_stats_memory_limit`
 .. _setting-old_stats_domain_min_time:
 
 ``old_stats_domain_min_time``
--------------------------------------
+-----------------------------
 
 - Default: ``12hours``
 - Values:  :ref:`time`
@@ -3901,7 +3435,7 @@ See :ref:`setting-old_stats_memory_limit`
 .. _setting-old_stats_ip_min_time:
 
 ``old_stats_ip_min_time``
--------------------------------------
+-------------------------
 
 - Default: ``12hours``
 - Values:  :ref:`time`
@@ -3917,7 +3451,7 @@ See :ref:`setting-old_stats_memory_limit`
 .. _setting-old_stats_memory_limit:
 
 ``old_stats_memory_limit``
--------------------------------------
+--------------------------
 
 - Default: ``16M``
 - Values:  :ref:`size`
@@ -3930,7 +3464,7 @@ The maximum amount of memory that can be used by the old stats process.
 .. _setting-old_stats_session_min_time:
 
 ``old_stats_session_min_time``
--------------------------------------
+------------------------------
 
 - Default: ``15mins``
 - Values:  :ref:`time`
@@ -3946,7 +3480,7 @@ See :ref:`setting-old_stats_memory_limit`
 .. _setting-old_stats_user_min_time:
 
 ``old_stats_user_min_time``
--------------------------------------
+---------------------------
 
 - Default: ``1hour``
 - Values:  :ref:`time`
@@ -3962,7 +3496,7 @@ See :ref:`setting-old_stats_memory_limit`
 .. _setting-pop3_client_workarounds:
 
 ``pop3_client_workarounds``
--------------------------------------
+---------------------------
 
 - Default: <empty>
 
@@ -3987,7 +3521,7 @@ The following values are currently supported:
 .. _setting-pop3_delete_type:
 
 ``pop3_delete_type``
--------------------------------------
+--------------------
 
 - Default: < >
 - Values: ``flag`` or ``expunge``
@@ -4004,7 +3538,7 @@ See :ref:`setting-pop3_deleted_flag`
 .. _setting-pop3_deleted_flag:
 
 ``pop3_deleted_flag``
--------------------------------------
+---------------------
 
 - Default: <empty>
 
@@ -4030,7 +3564,7 @@ See :ref:`setting-pop3_delete_type`
 .. _setting-pop3_enable_last:
 
 ``pop3_enable_last``
--------------------------------------
+--------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -4047,7 +3581,7 @@ flags that messages may have.
 .. _setting-pop3_fast_size_lookups:
 
 ``pop3_fast_size_lookups``
--------------------------------------
+--------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -4070,7 +3604,7 @@ message to determine.
 .. _setting-pop3_lock_session:
 
 ``pop3_lock_session``
--------------------------------------
+---------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -4083,7 +3617,7 @@ If enabled, only one POP3 session may exist for any single user.
 .. _setting-pop3_logout_format:
 
 ``pop3_logout_format``
--------------------------------------
+----------------------
 
 - Default: ``top=%t/%p``, ``retr=%r/%b``, ``del=%d/%m``, ``size=%s``
 - Values:  :ref:`string`
@@ -4111,7 +3645,7 @@ Variables available:
 .. _setting-pop3_no_flag_updates:
 
 ``pop3_no_flag_updates``
--------------------------------------
+------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -4125,7 +3659,7 @@ POP3 session is involved.
 .. _setting-pop3_reuse_xuidl:
 
 ``pop3_reuse_xuidl``
--------------------------------------
+--------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -4139,7 +3673,7 @@ UIDL.
 .. _setting-pop3_save_uidl:
 
 ``pop3_save_uidl``
--------------------------------------
+------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -4157,7 +3691,7 @@ See :ref:`setting-pop3_uidl_format`
 .. _setting-pop3_uidl_duplicates:
 
 ``pop3_uidl_duplicates``
--------------------------------------
+------------------------
 
 - Default: ``allow``
 - Values: ``allow`` or ``rename``
@@ -4175,7 +3709,7 @@ Options:
 .. _setting-pop3_uidl_format:
 
 ``pop3_uidl_format``
--------------------------------------
+--------------------
 
 - Default: ``%08Xu%08Xv``
 - Values:  :ref:`string`
@@ -4198,7 +3732,7 @@ standard variable modifiers (e.g., %Uf supplies the filename in uppercase):
 .. _setting-pop3c_features:
 
 ``pop3c_features``
--------------------------------------
+------------------
 
 - Default: <empty>
 
@@ -4215,7 +3749,7 @@ Available options:
 .. _setting-pop3c_host:
 
 ``pop3c_host``
--------------------------------------
+--------------
 
 - Default: <empty>
 
@@ -4234,7 +3768,7 @@ Example:
 .. _setting-pop3c_master_user:
 
 ``pop3c_master_user``
--------------------------------------
+---------------------
 
 - Default: <empty>
 
@@ -4263,7 +3797,7 @@ See also :ref:`setting-pop3c_user`.
 .. _setting-pop3c_password:
 
 ``pop3c_password``
--------------------------------------
+------------------
 
 - Default: <empty>
 
@@ -4282,7 +3816,7 @@ See also :ref:`setting-pop3c_user`.
 .. _setting-pop3c_port:
 
 ``pop3c_port``
--------------------------------------
+--------------
 
 - Default: ``110``
 
@@ -4295,7 +3829,7 @@ mail.
 .. _setting-pop3c_quick_received_date:
 
 ``pop3c_quick_received_date``
--------------------------------------
+-----------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -4309,23 +3843,22 @@ the metadata.
 .. _setting-pop3c_rawlog_dir:
 
 ``pop3c_rawlog_dir``
--------------------------------------
+--------------------
 
 - Default: <empty>
 
 Directory location to store raw POP3 protocol traffic logs used in
 dsync-based migration of mail..
 
-See: https://wiki.dovecot.org/Debugging/Rawlog
+See :ref:`debugging_rawlog`
 
-.. todo:: Link to rawlog documentation
 .. todo:: Indicate dsync setting
 
 
 .. _setting-pop3c_ssl:
 
 ``pop3c_ssl``
--------------------------------------
+-------------
 
 - Default: ``no``
 - Values: ``yes``, ``no``, or ``pop3s``
@@ -4339,7 +3872,7 @@ Enable SSL to remote POP3 account for dsync-based migration of mail?
 .. _setting-pop3c_ssl_verify:
 
 ``pop3c_ssl_verify``
--------------------------------------
+--------------------
 
 - Default: ``yes``
 - Values:  :ref:`boolean`
@@ -4356,7 +3889,7 @@ production use.
 .. _setting-pop3c_user:
 
 ``pop3c_user``
--------------------------------------
+--------------
 
 - Default: ``%u``
 
@@ -4374,7 +3907,7 @@ See also :ref:`setting-pop3c_password`.
 .. _setting-postmaster_address:
 
 ``postmaster_address``
--------------------------------------
+----------------------
 
 - Default: ``postmaster@%{if;%d;ne;;%d;%{hostname}}``
 
@@ -4390,7 +3923,7 @@ Other :ref:`mail user variables <variables-mail_user>` can be used as well.
 .. _setting-protocols:
 
 ``protocols``
--------------------------------------
+-------------
 
 - Default: ``imap pop3 lmtp``
 
@@ -4403,7 +3936,7 @@ as its value.
 .. _setting-quota_full_tempfail:
 
 ``quota_full_tempfail``
--------------------------------------
+-----------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -4415,15 +3948,13 @@ account moves under the quota limit at the time of redelivery.
 If disabled, the message is bounced with a permanent error returned to the
 sending server.
 
-.. todo:: Link to quota page
-
-See: https://wiki.dovecot.org/Quota
+See :ref:`quota_plugin`
 
 
 .. _setting-rawlog_dir:
 
 ``rawlog_dir``
--------------------------------------
+--------------
 
 .. versionadded:: v2.2.26
 
@@ -4435,15 +3966,13 @@ If empty, rawlog files are not created.
 
 :ref:`Mail user variables <variables-mail_user>` can be used.
 
-See: https://wiki.dovecot.org/Debugging/Rawlog
-
-.. todo:: Link to rawlog information page
+See :ref:`debugging_rawlog`
 
 
 .. _setting-recipient_delimiter:
 
 ``recipient_delimiter``
--------------------------------------
+-----------------------
 
 - Default: ``+``
 
@@ -4452,7 +3981,7 @@ The separator between the :user and :detail address parts.
 .. _setting-rejection_reason:
 
 ``rejection_reason``
--------------------------------------
+--------------------
 
 - Default: ``Your message to <%t> was automatically rejected:%n%r``
 
@@ -4476,7 +4005,7 @@ delivery protocol.
 .. _setting-rejection_subject:
 
 ``rejection_subject``
--------------------------------------
+---------------------
 
 - Default: ``Rejected: %s``
 
@@ -4490,7 +4019,7 @@ See :ref:`setting-rejection_reason`
 .. _setting-replication_dsync_parameters:
 
 ``replication_dsync_parameters``
--------------------------------------
+--------------------------------
 
 .. versionadded:: v2.2.9
 
@@ -4506,7 +4035,7 @@ See :ref:`setting-replicator`
 .. _setting-replication_full_sync_interval:
 
 ``replication_full_sync_interval``
--------------------------------------
+----------------------------------
 
 - Default: ``1day``
 - Values:  :ref:`time`
@@ -4521,7 +4050,7 @@ See :ref:`setting-replicator`
 .. _setting-replication_max_conns:
 
 ``replication_max_conns``
--------------------------------------
+-------------------------
 
 - Default:``10``
 - Values: :ref:`uint`
@@ -4536,7 +4065,7 @@ See :ref:`setting-replicator`
 .. _setting-replicator:
 
 ``replicator``
--------------------------------------
+--------------
 
 - Default: 
 
@@ -4546,25 +4075,39 @@ The replicator host to be used in dsync operation.
 .. todo:: Is this correct value?
 
 
-.. _setting-replicator_port:
+.. _setting-replicator_host:
 
-``replicator_port``
--------------------------------------
+``replicator_host``
+-------------------
 
-- Default: ``0``
+- Default: <empty>
+- Values: :ref:`string`
 
-The port indicated here is used by dsync for replication.
+Specifies remote hostname or UNIX socket to connect for replicator process.
+If :ref:`setting-replicator_port` is set to ``0``, then it will be treated
+as UNIX socket.
 
 See :ref:`setting-replicator`
 
-.. todo:: Indicate replicator setting
-.. todo:: What does 0 (default value) mean?
+
+.. _setting-replicator_port:
+
+``replicator_port``
+-------------------
+
+- Default: ``0``
+- Values: :ref:`uint`
+
+The port indicated here is used by dsync for replication. If set to ``0``,
+:ref:`setting-replicator_host` is interpreted as UNIX socket path.
+
+See :ref:`setting-replicator`
 
 
 .. _setting-sendmail_path:
 
 ``sendmail_paths``
--------------------------------------
+------------------
 
 - Default: ``/usr/sbin/sendmail``
 
@@ -4578,7 +4121,7 @@ See :ref:`setting-submission_host`
 .. _setting-shutdown_clients:
 
 ``shutdown_clients``
--------------------------------------
+--------------------
 
 - Default: ``yes``
 - Values: :ref:`boolean`
@@ -4593,10 +4136,10 @@ to apply a security update, for example.
 .. _setting-ssl:
 
 ``ssl``
--------------------------------------
+-------
 
 - Default: ``yes``
-- Values: :ref:``yes``,``no``, or ``required``
+- Values: ``yes``, ``no``, or ``required``
 
 The level of SSL support.
 
@@ -4604,17 +4147,16 @@ ssl=no: SSL/TLS is completely disabled.
 
 With both ssl=yes and ssl=required it's still possible that the client attempts to do a plaintext authentication before enabling SSL/TLS, which exposes the plaintext password to the internet. Dovecot attempts to indicate this to the IMAP clients via the LOGINDISABLED capability, but many clients still ignore it and send the password anyway. There is unfortunately no way for Dovecot to prevent this behavior. The POP3 standard doesn't have an equivalent capability at all, so the POP3 clients can't even know if the server would accept a plaintext authenticatio
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Explain levels
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_alt_cert:
 
 ``ssl_alt_cert``
--------------------------------------
+----------------
 
 .. versionadded:: v2.2.31
 
@@ -4633,16 +4175,15 @@ Example:
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_alt_key:
 
 ``ssl_alt_key``
--------------------------------------
+---------------
 
 .. versionadded:: v2.2.31
 
@@ -4661,16 +4202,15 @@ Example:
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_ca:
 
 ``ssl_ca``
--------------------------------------
+----------
 
 - Default: <empty>
 
@@ -4684,16 +4224,15 @@ Example:
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_cert:
 
 ``ssl_cert``
--------------------------------------
+------------
 
 - Default: ``</etc/ssl/certs/dovecot.pem``
 
@@ -4704,16 +4243,15 @@ See :ref:`setting-ssl`
 
 See :ref:`setting-ssl_key`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_cert_username_field:
 
 ``ssl_cert_username_field``
--------------------------------------
+---------------------------
 
 - Default: ``commonName``
 
@@ -4729,16 +4267,15 @@ See :ref:`setting-auth_ssl_username_from_cert`
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_cipher_list:
 
 ``ssl_cipher_list``
--------------------------------------
+-------------------
 
 - Default: ``ALL:!kRSA:!SRP:!kDHd:!DSS:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK:!RC4:!ADH:!LOW@STRENGTH``
 
@@ -4751,16 +4288,27 @@ See :ref:`setting-ssl`
 
 See :ref:`setting-ssl_min_protocol`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
+.. _setting-ssl_cipher_suites:
+
+``ssl_cipher_suites``
+---------------------
+
+.. versionadded:: v2.3.15
+
+- Default: OpenSSL version specific.
+
+The list of SSL cipher suites to use, in order of preference.
+
+See `<https://wiki.openssl.org/index.php/TLS1.3#Ciphersuites>`__
 
 .. _setting-ssl_client_ca_dir:
 
 ``ssl_client_ca_dir``
--------------------------------------
+---------------------
 
 - Default: <empty>
 
@@ -4771,16 +4319,15 @@ with the imapc back end).
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL
+See :ref:`ssl`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_client_ca_file:
 
 ``ssl_client_ca_file``
--------------------------------------
+----------------------
 
 - Default: <empty>
 
@@ -4793,16 +4340,15 @@ contains the CAs that are actually necessary.
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_client_cert:
 
 ``ssl_client_cert``
--------------------------------------
+-------------------
 
 - Default: <empty>
 
@@ -4814,16 +4360,15 @@ Example Setting:
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_client_key:
 
 ``ssl_client_key``
--------------------------------------
+------------------
 
 - Default: <empty>
 
@@ -4831,20 +4376,19 @@ Client certificate private key used in outgoing SSL connections.
 
 Example Setting:
 
-   ssl_client_cert = </etc/dovecot/dovecot-client.crt
+   ssl_client_key = </etc/dovecot/dovecot-client.key
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL
+See :ref:`ssl`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_crypto_device:
 
 ``ssl_crypto_device``
--------------------------------------
+---------------------
 
 - Default: <empty>
 - Values: <Obtain by running ``openssl engine`` command>
@@ -4853,16 +4397,15 @@ Which SSL crypto device to use.
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_curve_list:
 
 ``ssl_curve_list``
--------------------------------------
+------------------
 
 - Default: <empty>
 
@@ -4878,17 +4421,15 @@ Example:
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
-
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_dh:
 
 ``ssl_dh``
--------------------------------------
+----------
 
 .. versionadded:: v2.3
 
@@ -4909,16 +4450,15 @@ Example Setting:
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_client_require_valid_cert:
 
 ``ssl_client_require_valid_cert``
--------------------------------------
+---------------------------------
 
 - Default: ``yes``
 - Values: :ref:`boolean`
@@ -4927,16 +4467,15 @@ Require a valid cerficate when connecting to external SSL services?
 
 See :ref:`setting-ssl`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_key:
 
 ``ssl_key``
------------------------
+-----------
 
 - Default: <empty>
 
@@ -4953,16 +4492,15 @@ See :ref:`setting-ssl`
 
 See :ref:`setting-ssl_cert`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_key_password:
 
 ``ssl_key_password``
--------------------------------------
+--------------------
 
 - Default: <empty>
 
@@ -4979,35 +4517,42 @@ See :ref:`setting-ssl`
 
 See :ref:`setting-ssl_key`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_min_protocol:
 
 ``ssl_min_protocol``
--------------------------------------
+--------------------
 
-- Default: ``TLSv1``
+- Default: ``TLSv1.2``
 
 The minimum SSL protocol version Dovecot accepts.
+Supported values are:
+
+ * ``ANY`` - Support any version. (should not be used)
+ * ``SSLv3`` - Support SSLv3+. (should not be used)
+ * ``TLSv1`` - Support TLSv1+.
+ * ``TLSv1.1`` - Support TLSv1.1+.
+ * ``TLSv1.2`` - Support TLSv1.2+. (default)
+ * ``TLSv1.3`` - Support TLSv1.3+.
+ * ``LATEST`` - Support only the latest version available.
 
 See :ref:`setting-ssl`
 
 See :ref:`setting-ssl_cipher_list`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+See :ref:`dovecot_ssl_configuration`
 
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
 
 
 .. _setting-ssl_options:
 
 ``ssl_options``
--------------------------------------
+---------------
 
 - Default: <empty>
 
@@ -5021,15 +4566,15 @@ Currently supported options are:
 
 See :ref:`setting-ssl`
 
-.. todo:: Indicate SSL setting
+See :ref:`dovecot_ssl_configuration`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+.. todo:: Indicate SSL setting
 
 
 .. _setting-ssl_prefer_server_ciphers:
 
 ``ssl_prefer_server_ciphers``
--------------------------------------
+-----------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -5038,16 +4583,15 @@ If enabled, give preference to the server's cipher list over a client's list.
 
 See :ref:`setting-ssl`
 
-.. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
+See :ref:`dovecot_ssl_configuration`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+.. todo:: Indicate SSL setting
 
 
 .. _setting-ssl_require_crl:
 
 ``ssl_require_crl``
--------------------------------------
+-------------------
 
 - Default: ``yes``
 - Values: :ref:`boolean`
@@ -5056,16 +4600,15 @@ If enabled, the CRL check must succeed for client certificates.
 
 See :ref:`setting-ssl`
 
-.. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
+See :ref:`dovecot_ssl_configuration`
 
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
+.. todo:: Indicate SSL setting
 
 
 .. _setting-ssl_verify_client_cert:
 
 ``ssl_verify_client_cert``
--------------------------------------
+--------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -5076,18 +4619,17 @@ See :ref:`setting-ssl`
 
 See :ref:`setting-auth_ssl_require_client_cert`
 
+See :ref:`dovecot_ssl_configuration`
+
+See :ref:`ssl`
+
 .. todo:: Indicate SSL setting
-.. todo:: Link to SSL page
-
-See: https://wiki.dovecot.org/SSL/DovecotConfiguration
-
-See: https://wiki.dovecot.org/SSL
 
 
 .. _setting-state_dir:
 
 ``state_dir``
--------------------------------------
+-------------
 
 - Default: ``/var/lib/dovecot``
 
@@ -5105,7 +4647,7 @@ The settings ``state_dir = /home/foo/dovecot/state`` and
 .. _setting-stats_writer_socket_path:
 
 ``stats_writer_socket_path``
--------------------------------------
+----------------------------
 
 - Default: ``stats-writer``
 
@@ -5115,7 +4657,7 @@ The path to the stats-writer socket.
 .. _setting-submission_client_workarounds:
 
 ``submission_client_workarounds``
--------------------------------------
+---------------------------------
 
 - Default: <empty>
 
@@ -5131,7 +4673,7 @@ space-separated. Supported workaround identifiers are:
 .. _setting-submission_host:
 
 ``submission_host``
--------------------------------------
+-------------------
 
 - Default: <empty>
 
@@ -5149,7 +4691,7 @@ See :ref:`setting-sendmail_path`
 .. _setting-submission_logout_format:
 
 ``submission_logout_format``
--------------------------------------
+----------------------------
 
 - Default: ``in=%i out=%o``
 - Values:  :ref:`string`
@@ -5171,7 +4713,7 @@ Variables supported:
 .. _setting-submission_max_mail_size:
 
 ``submission_max_mail_size``
--------------------------------------
+----------------------------
 
 - Default: ``40M``
 - Values:  :ref:`size`
@@ -5190,7 +4732,7 @@ unknown limit exists there, which will be passed back to the client.
 .. _setting-submission_max_recipients:
 
 ``submission_max_recipients``
--------------------------------------
+-----------------------------
 
 - Default: ``0``
 - Values: :ref:`uint`
@@ -5203,10 +4745,10 @@ Maximum number of recipients accepted per connection.
 .. _setting-submission_relay_command_timeout:
 
 ``submission_relay_command_timeout``
--------------------------------------
+------------------------------------
 
 - Default: ``5mins``
-- Values:  :ref:`time`
+- Values:  :ref:`time_msecs`
 
 Timeout for SMTP commands issued to the submission service's relay server.
 
@@ -5218,10 +4760,10 @@ The timeout is reset every time more data is being sent or received.
 .. _setting-submission_relay_connect_timeout:
 
 ``submission_relay_connect_timeout``
--------------------------------------
+------------------------------------
 
 - Default: ``30secs``
-- Values:  :ref:`time`
+- Values:  :ref:`time_msecs`
 
 Timeout for connecting to and logging into the submission service's relay
 server.
@@ -5232,7 +4774,7 @@ server.
 .. _setting-submission_relay_host:
 
 ``submission_relay_host``
-----------------------------------------
+-------------------------
 
 - Default: <empty>
 
@@ -5244,7 +4786,7 @@ Host of the relay server (required to provide the submission service).
 .. _setting-submission_relay_master_user:
 
 ``submission_relay_master_user``
------------------------------------
+--------------------------------
 
 - Default: <empty>
 
@@ -5257,7 +4799,7 @@ required.
 .. _setting-submission_relay_max_idle_time:
 
 ``submission_relay_max_idle_time``
------------------------------------
+----------------------------------
 
 - Default: ``29mins``
 - Values:  :ref:`time`
@@ -5270,7 +4812,7 @@ Submission relay max idle time for connection to relay MTA.
 .. _setting-submission_relay_password:
 
 ``submission_relay_password``
----------------------------------
+-----------------------------
 
 - Default: <empty>
 
@@ -5282,7 +4824,7 @@ Password for authentication to the relay MTA if authentication is required.
 .. _setting-submission_relay_port:
 
 ``submission_relay_port``
----------------------------------
+-------------------------
 
 - Default: ``25``
 
@@ -5294,7 +4836,7 @@ Port for the submission relay server.
 .. _setting-submission_relay_rawlog_dir:
 
 ``submission_relay_rawlog_dir``
----------------------------------
+-------------------------------
 
 - Default: <empty>
 
@@ -5302,15 +4844,15 @@ Write protocol logs for relay connection to this directory for debugging.
 
 :ref:`Mail user variables <variables-mail_user>` can be used.
 
-.. todo:: Indicate submission setting
+See :ref:`debugging_rawlog`
 
-see: https://wiki.dovecot.org/Debugging/Rawlog
+.. todo:: Indicate submission setting
 
 
 .. _setting-submission_relay_ssl:
 
 ``submission_relay_ssl``
------------------------------
+------------------------
 
 - Default: ``no``
 - Values: ``no``, ``smtps``, or ``starttls``
@@ -5329,7 +4871,7 @@ Avaialble values:
 .. _setting-submission_relay_ssl_verify:
 
 ``submission_relay_ssl_verify``
-----------------------------------
+-------------------------------
 
 - Default: ``yes``
 - Values: :ref:`boolean`
@@ -5342,7 +4884,7 @@ If enabled, TLS certificate of the relay server must be verified.
 .. _setting-submission_relay_trusted:
 
 ``submission_relay_trusted``
------------------------------
+----------------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -5358,7 +4900,7 @@ server (only if enabled).
 .. _setting-submission_relay_user:
 
 ``submission_relay_user``
------------------------------
+-------------------------
 
 - Default: <empty>
 
@@ -5370,7 +4912,7 @@ User name for authentication to the relay MTA if authentication is required.
 .. _setting-submission_ssl:
 
 ``submission_ssl``
------------------------------
+------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -5383,7 +4925,7 @@ See :ref:`setting-submission_host`
 .. _setting-submission_timeout:
 
 ``submission_timeout``
------------------------------
+----------------------
 
 - Default: ``30secs``
 - Values:  :ref:`time`
@@ -5396,7 +4938,7 @@ See :ref:`setting-submission_host`
 .. _setting-syslog_facility:
 
 ``syslog_facility``
------------------------------
+-------------------
 
 - Default: ``mail``
 
@@ -5406,7 +4948,7 @@ The syslog facility used if you're logging to syslog.
 .. _setting-valid_chroot_dirs:
 
 ``valid_chroot_dirs``
------------------------------
+---------------------
 
 - Default: <empty>
 - Values: :ref:`boolean`
@@ -5423,7 +4965,7 @@ to subdirectories such as ``/var/mail/foo/bar``.
 .. _setting-verbose_proctitle:
 
 ``verbose_proctitle``
------------------------------
+---------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -5437,7 +4979,7 @@ This aids in seeing who is actually using the IMAP processes.
 .. _setting-verbose_ssl:
 
 ``verbose_ssl``
------------------------------
+---------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
@@ -5448,7 +4990,7 @@ If enabled, protocol-level SSL errors are logged.
 .. _setting-version_ignore:
 
 ``version_ignore``
------------------------------
+------------------
 
 - Default: ``no``
 - Values: :ref:`boolean`
