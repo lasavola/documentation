@@ -20,8 +20,8 @@ anything destructive. The only way out of it is to find and exploit a
 kernel security hole.
 
 Since one login process can handle only one connection, the service's
-`process_limit` setting limits the number of users that can be logging in at
-the same time (defaults to [[setting,service_process_limit,100]]).
+[[setting,service_process_limit]] setting limits the number of users that can
+be logging in at the same time (defaults to [[setting,default_process_limit]]).
 
 SSL/TLS proxying processes are also counted here, so if you're using
 SSL/TLS you'll need to make sure this count is higher than the maximum
