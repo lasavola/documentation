@@ -41,7 +41,6 @@ You can enable high-security mode with:
 service imap-login {
   restart_request_count = 1
   #process_min_avail = 0
-  #vsz_limit = 64M
 }
 
 service pop3-login {
