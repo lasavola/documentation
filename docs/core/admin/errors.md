@@ -3,7 +3,7 @@ layout: doc
 title: Errors
 dovecotlinks:
   troubleshooting: Dovecot troubleshooting
-  error_time_moved_backwords:
+  error_time_moved_backwards:
     hash: time-moved-backwards-error
     text: Time Moved Backwards Error
 ---
